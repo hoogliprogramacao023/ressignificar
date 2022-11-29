@@ -128,7 +128,7 @@ $editaConfig = $infoSistema->rsDados(1);
                                             </div>
                                             <div class="col-md-4 col-sm-12">
                                             <label  class="col-form-label">Linkedin</label>
-                                            <input class="form-control" type="text" name="linkedln" value="<?php if(isset($editaConfig->linkedln) && !empty($editaConfig->linkedln)){ echo $editaConfig->linkedln;}?>" />
+                                            <input class="form-control" type="text" name="linkedin" value="<?php if(isset($editaConfig->linkedin) && !empty($editaConfig->linkedin)){ echo $editaConfig->linkedin;}?>" />
                                             </div> 
                                             <div class="col-md-4 col-sm-12">
                                             <label  class="col-form-label">Pinterest</label>
@@ -187,7 +187,7 @@ $editaConfig = $infoSistema->rsDados(1);
                                             </div> 
                                         </div>
                                       
-<!-- <hr>
+                                        <hr>
                                         <div class="form-group">
                                             <div class="col-md-12">
                                                 <h3>Tags</h3>
@@ -206,7 +206,7 @@ $editaConfig = $infoSistema->rsDados(1);
                                             </div> 
                                         </div>
                                      
-                                        -->
+                                        
                                     </div>
                                     <div class="form-actions">
                                         <div class="text-right">

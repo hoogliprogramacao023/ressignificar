@@ -1,7 +1,6 @@
 <?php include "includes.php";
 include "Class/banners.class.php";
 include "Class/textos.class.php";
-include "Class/servicos.class.php";
 include "Class/procedimentos.class.php";
 include "Class/testemunhos.class.php";
 include "Class/doutores.class.php";

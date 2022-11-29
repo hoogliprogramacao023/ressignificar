@@ -22,7 +22,7 @@ RewriteRule ^blog/([a-zA-Z-0-9-_]+)$ desc-blog.php?id=$1
 # RewriteRule ^blog/([a-zA-Z-0-9-_]+)/amp$ desc-blog.php?id=$1&formato=amp
 RewriteRule ^blog$ blog.php
 RewriteRule ^sobre$ sobre.php
-RewriteRule ^servicos$ servico.php
+RewriteRule ^servicos$ servicos.php
 RewriteRule ^servicos/psicoterapia$ servico.php
 RewriteRule ^servicos/terapia-de-casal$ servico2.php
 RewriteRule ^servicos/psicoterapia-familiar$ servico3.php

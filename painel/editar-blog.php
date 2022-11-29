@@ -134,6 +134,37 @@ $editaBlog = $blogs->rsDados($id);
                                             </div>
                                         </div>
                                         <?php }?>
+
+                                        <div class="form-group row">
+                                            <div class="col-md-6 col-sm-12">
+                                                <label class="col-form-label">Foto 1 </label>
+                                                <input class="form-control" type="file" name="foto1" />
+                                            </div>
+                                           
+                                        </div>
+                                        <?php if(isset($editaBlog->foto1) && !empty($editaBlog->foto1)){?>
+                                        <div class="form-group row">
+                                            <div class="col-md-6 col-sm-12">
+                                                <img src="../img/<?php echo $editaBlog->foto1;?>" width="150">
+                                            </div>
+                                        </div>
+                                        <?php }?>
+
+                                        <div class="form-group row">
+                                            <div class="col-md-6 col-sm-12">
+                                                <label class="col-form-label">Thumb </label>
+                                                <input class="form-control" type="file" name="thumb" />
+                                            </div>
+                                           
+                                        </div>
+                                        <?php if(isset($editaBlog->thumb) && !empty($editaBlog->thumb)){?>
+                                        <div class="form-group row">
+                                            <div class="col-md-6 col-sm-12">
+                                                <img src="../img/<?php echo $editaBlog->thumb;?>" width="150">
+                                            </div>
+                                        </div>
+                                        <?php }?>
+
                                         <div class="form-group row">
                                             <div class="col-md-12 col-sm-12">
                                                 <label class="col-form-label">Descrição Imagem</label>

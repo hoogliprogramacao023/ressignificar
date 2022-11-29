@@ -115,6 +115,39 @@ $editaAbout = $about->rsDados(1);
                                                 <textarea name="texto2" class="ckeditor" id="ckeditor" cols="30" rows="10"><?php if(isset($editaAbout->texto2) && !empty($editaAbout->texto2)){ echo $editaAbout->texto2;}?></textarea>
                                             </div>
                                         </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Paralax 1</label>
+                                                    <input type="file" name="paralax_1" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <?php if(isset($editaAbout->paralax_1) && !empty($editaAbout->paralax_1)){ ?>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <img src="../img/<?php echo $editaAbout->paralax_1;?>"  width="100">
+                                                </div>
+                                            </div>
+                                            <?php }?>
+                                        </div>           
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Paralax 2</label>
+                                                    <input type="file" name="paralax_2" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <?php if(isset($editaAbout->paralax_2) && !empty($editaAbout->paralax_2)){ ?>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <img src="../img/<?php echo $editaAbout->paralax_2;?>"  width="100">
+                                                </div>
+                                            </div>
+                                            <?php }?>
+                                        </div>           
+
                                         <br>
                                         
                                         <div class="row">
@@ -292,6 +325,8 @@ $editaAbout = $about->rsDados(1);
                                     <input type="hidden" name="foto1_Atual" value="<?php if(isset($editaAbout->foto1) && !empty($editaAbout->foto1)){ echo $editaAbout->foto1;}?>">
                                     <input type="hidden" name="foto2_Atual" value="<?php if(isset($editaAbout->foto2) && !empty($editaAbout->foto2)){ echo $editaAbout->foto2;}?>">
                                     <input type="hidden" name="foto3_Atual" value="<?php if(isset($editaAbout->foto3) && !empty($editaAbout->foto3)){ echo $editaAbout->foto3;}?>">
+                                    <input type="hidden" name="paralax_1_Atual" value="<?php if(isset($editaAbout->paralax_1) && !empty($editaAbout->paralax_1)){ echo $editaAbout->paralax_1;}?>">
+                                    <input type="hidden" name="paralax_2_Atual" value="<?php if(isset($editaAbout->paralax_2) && !empty($editaAbout->paralax_2)){ echo $editaAbout->paralax_2;}?>">
 
                                     <input type="hidden" name="pagina_individual" value="<?php if(isset($_GET['pi']) && $_GET['pi'] == 'S'){echo "S";}else{echo "N";}?>">
 

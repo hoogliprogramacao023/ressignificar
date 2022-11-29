@@ -43,7 +43,7 @@ if(empty($ConfigSistemaInstanciada)) {
 				$this->twitter = $rsDados[0]->twitter;
 				$this->instagram = $rsDados[0]->instagram;
 				$this->youtube = $rsDados[0]->youtube;
-				$this->linkedln = $rsDados[0]->linkedln;
+				$this->linkedin = $rsDados[0]->linkedin;
 				$this->pinterest = $rsDados[0]->pinterest;
 				$this->nome_empresa = $rsDados[0]->nome_empresa;
 				$this->endereco = $rsDados[0]->endereco;
@@ -191,7 +191,7 @@ if(empty($ConfigSistemaInstanciada)) {
 				$twitter = filter_input(INPUT_POST, 'twitter');
 				$instagram = filter_input(INPUT_POST, 'instagram');
 				$youtube = filter_input(INPUT_POST, 'youtube');
-				$linkedln = filter_input(INPUT_POST, 'linkedln');
+				$linkedin = filter_input(INPUT_POST, 'linkedin');
 				$pinterest = filter_input(INPUT_POST, 'pinterest');
 				$nome_empresa = filter_input(INPUT_POST, 'nome_empresa');
 				$endereco = filter_input(INPUT_POST, 'endereco');
@@ -208,7 +208,7 @@ if(empty($ConfigSistemaInstanciada)) {
 				$hora_atendimento = filter_input(INPUT_POST, 'hora_atendimento');
 				$tag_header = $_POST['tag_header'];
 				$tag_body = $_POST['tag_body'];
-				$texto_sobre = filter_input(INPUT_POST, 'texto_sobre');
+				$texto_sobre = $_POST['texto_sobre'];
 
 				//echo "aqui: ".$tag_header;
 				try{   
@@ -217,7 +217,7 @@ if(empty($ConfigSistemaInstanciada)) {
 						} else {
 							$pastaArquivos = '../img';
 						}
-					$sql = "UPDATE tbl_config SET id_campanha=?, facebook=?, twitter=?, instagram=?, youtube=?, pinterest=?, nome_empresa=?, endereco=?, telefone1=?, telefone2=?, email1=?, email2=?, cep_loja=?, merchant_id_cielo=?, merchant_key_cielo=?, telefone_flutuante=?, whatsapp_flutuante=?, linkedln=?, email_recebimento=?, tag_header=?, tag_body=?, hora_atendimento=?, texto_sobre WHERE id=? ";   
+					$sql = "UPDATE tbl_config SET id_campanha=?, facebook=?, twitter=?, instagram=?, youtube=?, pinterest=?, nome_empresa=?, endereco=?, telefone1=?, telefone2=?, email1=?, email2=?, cep_loja=?, merchant_id_cielo=?, merchant_key_cielo=?, telefone_flutuante=?, whatsapp_flutuante=?, linkedin=?, email_recebimento=?, tag_header=?, tag_body=?, hora_atendimento=?, texto_sobre=? WHERE id=? ";   
 
 					$stm = $this->pdo->prepare($sql);  
 					$stm->bindValue(1, $id_campanha);
@@ -237,13 +237,13 @@ if(empty($ConfigSistemaInstanciada)) {
 					$stm->bindValue(15, $merchant_key_cielo);
 					$stm->bindValue(16, $telefone_flutuante);
 					$stm->bindValue(17, $whatsapp_flutuante);
-					$stm->bindValue(18, $linkedln);
+					$stm->bindValue(18, $linkedin);
 					$stm->bindValue(19, $email_recebimento);
 					$stm->bindValue(20, $tag_header);
 					$stm->bindValue(21, $tag_body);
 					$stm->bindValue(22, $hora_atendimento);
-					$stm->bindValue(22, $texto_sobre);
-					$stm->bindValue(23, 1);
+					$stm->bindValue(23, $texto_sobre);
+					$stm->bindValue(24, 1);
 					$stm->execute();  
 
 					echo "	<script>
@@ -253,6 +253,7 @@ if(empty($ConfigSistemaInstanciada)) {
 							exit;
 				} catch(PDOException $erro){   
 					echo $erro->getMessage();
+					exit;
 				}
 			}
 		}

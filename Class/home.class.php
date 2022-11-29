@@ -119,6 +119,39 @@ if(empty($HomeInstanciada)) {
 					exit;
                 }
 
+				if($_FILES["icone1"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["icone1"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
+				if($_FILES["icone2"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["icone2"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
+				if($_FILES["icone3"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["icone3"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
 				$titulo = filter_input(INPUT_POST, 'titulo');
 				$subtitulo = filter_input(INPUT_POST, 'subtitulo');
 				$nome_botao = filter_input(INPUT_POST, 'nome_botao');
@@ -144,7 +177,7 @@ if(empty($HomeInstanciada)) {
 							$pastaArquivos = '../img';
 						}
 						
-						$sql = "INSERT INTO tbl_home (titulo, subtitulo, nome_botao, link_botao, topico1, topico2, topico3, imagem1, imagem2, qtd_anos, cat_anos, subtitulo1, titulo1, texto1, item1, item2, item3, item4, banner) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
+						$sql = "INSERT INTO tbl_home (titulo, subtitulo, nome_botao, link_botao, topico1, topico2, topico3, icone1, icone2, icone3, imagem1, imagem2, qtd_anos, cat_anos, subtitulo1, titulo1, texto1, item1, item2, item3, item4, banner) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
 						$stm = $this->pdo->prepare($sql);   
 						$stm->bindValue(1, $titulo);   
 						$stm->bindValue(2, $subtitulo);   
@@ -153,18 +186,21 @@ if(empty($HomeInstanciada)) {
 						$stm->bindValue(5, $topico1);
                         $stm->bindValue(6, $topico2);
                         $stm->bindValue(7, $topico3);
-						$stm->bindValue(8, upload('imagem1', $pastaArquivos, 'N'));   
-						$stm->bindValue(9, upload('imagem2', $pastaArquivos, 'N'));  
-						$stm->bindValue(10, $qtd_anos); 
-						$stm->bindValue(11, $cat_anos); 
-						$stm->bindValue(12, $subtitulo1);
-						$stm->bindValue(13, $titulo1);
-						$stm->bindValue(14, $texto1);
-						$stm->bindValue(15, $item1); 
-						$stm->bindValue(16, $item2);
-						$stm->bindValue(17, $item3);
-						$stm->bindValue(18, $item4);   
-						$stm->bindValue(19, upload('banner', $pastaArquivos, 'N'));
+						$stm->bindValue(8, upload('icone1', $pastaArquivos, 'N'));
+						$stm->bindValue(9, upload('icone2', $pastaArquivos, 'N'));
+						$stm->bindValue(10, upload('icone3', $pastaArquivos, 'N'));
+						$stm->bindValue(11, upload('imagem1', $pastaArquivos, 'N'));   
+						$stm->bindValue(12, upload('imagem2', $pastaArquivos, 'N'));  
+						$stm->bindValue(13, $qtd_anos); 
+						$stm->bindValue(14, $cat_anos); 
+						$stm->bindValue(15, $subtitulo1);
+						$stm->bindValue(16, $titulo1);
+						$stm->bindValue(17, $texto1);
+						$stm->bindValue(18, $item1); 
+						$stm->bindValue(19, $item2);
+						$stm->bindValue(20, $item3);
+						$stm->bindValue(21, $item4);   
+						$stm->bindValue(22, upload('banner', $pastaArquivos, 'N'));
 						$stm->execute(); 
 						$idHome = $this->pdo->lastInsertId();
 						
@@ -223,6 +259,49 @@ if(empty($HomeInstanciada)) {
                     </script>";
 					exit;
                 }
+				if($_FILES["banner"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["banner"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
+				if($_FILES["icone1"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["icone1"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
+				if($_FILES["icone2"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["icone2"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
+				if($_FILES["icone3"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["icone3"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
 
 				$titulo = filter_input(INPUT_POST, 'titulo');
 				$subtitulo = filter_input(INPUT_POST, 'subtitulo');
@@ -250,28 +329,31 @@ if(empty($HomeInstanciada)) {
 							$pastaArquivos = '../img';
 						}
 				
-					$sql = "UPDATE tbl_home SET titulo=?, subtitulo=?, nome_botao=?, link_botao=?, topico1=?, topico2=?, topico3=?, imagem1=?, imagem2=?, qtd_anos=?, cat_anos=?, subtitulo1=?, titulo1=?, texto1=?, item1=?, item2=?, item3=?, item4=?, banner=? WHERE id=?";   
+					$sql = "UPDATE tbl_home SET titulo=?, subtitulo=?, nome_botao=?, link_botao=?, topico1=?, topico2=?, topico3=?, icone1=?, icone2=?, icone3=?, imagem1=?, imagem2=?, qtd_anos=?, cat_anos=?, subtitulo1=?, titulo1=?, texto1=?, item1=?, item2=?, item3=?, item4=?, banner=? WHERE id=?";   
 					$stm = $this->pdo->prepare($sql);   
 					$stm->bindValue(1, $titulo);   
-                    $stm->bindValue(2, $subtitulo);   
-                    $stm->bindValue(3, $nome_botao);   
-                    $stm->bindValue(4, $link_botao);
-                    $stm->bindValue(5, $topico1);
-                    $stm->bindValue(6, $topico2);
-                    $stm->bindValue(7, $topico3);
-					$stm->bindValue(8, upload('imagem1', $pastaArquivos, 'N'));   
-					$stm->bindValue(9, upload('imagem2', $pastaArquivos, 'N')); 
-					$stm->bindValue(10, $qtd_anos); 
-					$stm->bindValue(11, $cat_anos);   
-					$stm->bindValue(12, $subtitulo1);
-					$stm->bindValue(13, $titulo1);
-					$stm->bindValue(14, $texto1);
-					$stm->bindValue(15, $item1); 
-					$stm->bindValue(16, $item2);
-					$stm->bindValue(17, $item3);
-					$stm->bindValue(18, $item4);
-					$stm->bindValue(19, upload('banner', $pastaArquivos, 'N'));
-					$stm->bindValue(20, $id);   
+					$stm->bindValue(2, $subtitulo);   
+					$stm->bindValue(3, $nome_botao);   
+					$stm->bindValue(4, $link_botao);
+					$stm->bindValue(5, $topico1);
+					$stm->bindValue(6, $topico2);
+					$stm->bindValue(7, $topico3);
+					$stm->bindValue(8, upload('icone1', $pastaArquivos, 'N'));
+					$stm->bindValue(9, upload('icone2', $pastaArquivos, 'N'));
+					$stm->bindValue(10, upload('icone3', $pastaArquivos, 'N'));
+					$stm->bindValue(11, upload('imagem1', $pastaArquivos, 'N'));   
+					$stm->bindValue(12, upload('imagem2', $pastaArquivos, 'N'));  
+					$stm->bindValue(13, $qtd_anos); 
+					$stm->bindValue(14, $cat_anos); 
+					$stm->bindValue(15, $subtitulo1);
+					$stm->bindValue(16, $titulo1);
+					$stm->bindValue(17, $texto1);
+					$stm->bindValue(18, $item1); 
+					$stm->bindValue(19, $item2);
+					$stm->bindValue(20, $item3);
+					$stm->bindValue(21, $item4);   
+					$stm->bindValue(22, upload('banner', $pastaArquivos, 'N'));
+					$stm->bindValue(23, $id);   
 					$stm->execute(); 
 				} catch(PDOException $erro){
 					echo $erro->getMessage(); 

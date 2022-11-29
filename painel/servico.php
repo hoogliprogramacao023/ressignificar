@@ -50,6 +50,7 @@ $servico->excluir();
                                     <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                         <thead>
                                             <tr>
+                                                <th>Meta Title</th>
                                                 <th>Título</th>
                                                 <th>Título URL</th>
                                                 <th>Título 2</th>
@@ -63,6 +64,7 @@ $servico->excluir();
                                             if(count($puxaServico) > 0){
                                             foreach($puxaServico as $servico){?>
                                             <tr>
+                                                <td><?php echo $servico->meta_title;?></td>
                                                 <td><?php echo $servico->titulo;?></td>
                                                 <td><?php echo $servico->name_url;?></td>
                                                 <td><?php echo $servico->titulo2;?></td>

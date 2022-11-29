@@ -3,7 +3,8 @@
     $categorias= Categorias::getInstance(Conexao::getInstance());
     $puxaCategorias = $categorias->rsDados();
 
-
+    $blogs = Blogs::getInstance(Conexao::getInstance());
+    $puxaBlogs = $blogs->rsDados();
 
     $servicos = Servico::getInstance(Conexao::getInstance());
     $puxaServico = $servicos->rsDados();
@@ -87,7 +88,7 @@
                                         </li>
 
                                         <li class="dropdown <?php if(basename($_SERVER['SCRIPT_NAME']) == 'servicos.php'){echo "current";}?>">
-                                            <a class="" href="/ressignificar/servicos">Serviços</a>
+                                            <a href="<?php echo SITE_URL;?>/servicos">Serviços</a>
                                           <ul class="dropdown-menu">
                                               <?php foreach($puxaServico as $servico) { ?>
                                                 <li><a class="dropdown-item" href="<?php echo SITE_URL ?>/servicos/<?php echo $servico->name_url; ?>"><?php echo $servico->titulo; ?></a></li>
@@ -96,12 +97,10 @@
                                         </li>
 
                                         <li class="dropdown <?php if(basename($_SERVER['SCRIPT_NAME']) == 'blog.php'){echo "current";}?>">
-                                          <a class="" href="<?php echo SITE_URL;?>/blog" >
-                                            Blog
-                                          </a>
+                                            <a class="" href="<?php echo SITE_URL;?>/blog">Blog</a>
                                           <ul class="dropdown-menu">
                                               <?php foreach($puxaBlogs as $blog) { ?>
-                                                <li><a class="dropdown-item" href="<?php echo SITE_URL ?>/blog/<?php echo $blog->titulo; ?>"><?php echo $blog->titulo; ?></a></li>
+                                                <li><a class="dropdown-item" href="<?php echo SITE_URL ?>/blog/<?php echo $blog->id; ?>"><?php echo $blog->titulo; ?></a></li>
                                               <?php }?>
                                           </ul>
                                         </li>
@@ -141,21 +140,19 @@
                                             <a href="<?php echo SITE_URL;?>">Home </a>
                                            
                                         </li>
+
                                         <li class=" <?php if(basename($_SERVER['SCRIPT_NAME']) == 'sobre.php'){echo "current";}?>" >
                                             <a href="<?php echo SITE_URL;?>/sobre">Sobre</a>
-                                        </li>
-                                         <li class="dropdown <?php if(basename($_SERVER['SCRIPT_NAME']) == 'projetos.php'){echo "current";}?>">
-                                          <a class="nav-link" href="<?php echo SITE_URL;?>/lojas" >
-                                            Lojas
-                                          </a>
+                                            <li class="dropdown <?php if(basename($_SERVER['SCRIPT_NAME']) == 'servicos.php'){echo "current";}?>">
+                                            <a href="<?php echo SITE_URL;?>/servicos">Serviços</a>
                                           <ul class="dropdown-menu">
-                                              <?php foreach($puxaCategorias as $categoria) { ?>
-                                            <li><a class="dropdown-item" href="<?php echo SITE_URL ?>/site/lojas/<?php echo $categoria->id; ?>"><?php echo $categoria->nome; ?></a></li>
+                                              <?php foreach($puxaServico as $servico) { ?>
+                                                <li><a class="dropdown-item" href="<?php echo SITE_URL ?>/servicos/<?php echo $servico->name_url; ?>"><?php echo $servico->titulo; ?></a></li>
                                             <?php }?>
                                           </ul>
                                         </li>
-                                        <li class=" <?php if(basename($_SERVER['SCRIPT_NAME']) == 'desc-servico.php'){echo "current";}?>"><a href="<?php echo SITE_URL;?>/site/eventos">Eventos</a> 
-                                        </li>
+
+
                                         <li class=" <?php if(basename($_SERVER['SCRIPT_NAME']) == 'contato.php'){echo "current";}?>"><a href="<?php echo SITE_URL;?>/contato">Contato </a>
                                         </li>
                                           

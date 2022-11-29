@@ -299,12 +299,12 @@ if(empty($BlogsInstanciada)) {
                 }
 
                 // Verificação
-                if($_FILES["foto1"]["size"] > $maximo) {
+				if($_FILES["foto1"]["size"] > $maximo) {
                     echo "Erro! O arquivo enviado por você ultrapassa o ";
                     $valorKb = $maximo / 1000;
                     $tamanhoFoto = $_FILES["foto1"]["size"] /1000;
                     echo "<script>
-                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo 1. Sua imagem tem ".$tamanhoFoto." KB');
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
                     history.back();
                     </script>";
 					exit;
@@ -369,8 +369,10 @@ if(empty($BlogsInstanciada)) {
 					$stm->bindValue(25, $link_botao2);
 					$stm->bindValue(26, $id);   
 					$stm->execute(); 
+					exit;
 				} catch(PDOException $erro){
 					echo $erro->getMessage(); 
+					exit;
 				}
 				echo "	<script>
 							window.location='{$redireciona}';

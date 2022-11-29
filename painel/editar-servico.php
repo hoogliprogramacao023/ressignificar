@@ -62,6 +62,30 @@ $editaServico = $servico->rsDados($id);
 
                                         <hr>
 
+                                        <h4>Meta Tags</h4>
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-12">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Title</label>
+                                                    <input type="text" class="form-control" name="meta_title" value="<?php if(isset($editaServico->meta_title) && !empty($editaServico->meta_title)){ echo $editaServico->meta_title;}?>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Keywords</label>
+                                                    <input type="text" class="form-control" name="meta_keywords" value="<?php if(isset($editaServico->meta_keywords) && !empty($editaServico->meta_keywords)){ echo $editaServico->meta_keywords;}?>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Description</label>
+                                                    <input type="text" class="form-control" name="meta_description" value="<?php if(isset($editaServico->meta_description) && !empty($editaServico->meta_description)){ echo $editaServico->meta_description;}?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <br>
+
                                         <h4>Seção 1</h4>
                                         <div class="row">
                                             <div class="col-md-6 col-sm-12">

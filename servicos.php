@@ -1,24 +1,18 @@
-<?php include "includes.php";
-include "Class/procedimentos.class.php";
+<?php 
+include "includes.php";
 include "Class/textos.class.php";
 include "Class/banners.class.php";
-
-$id = '';
-if(isset($_GET['id'])){
-    if(empty($_GET['id'])){
-        header('Location: /');
-    }else{
-        $id = $_GET['id'];
-    }
-}else{
-    header('Location: /');
-}
+include "Class/procedimentos.class.php";
+include "Class/blogs.class.php";
 
 $banner = Banners::getInstance(Conexao::getInstance());
 $procedimentos = Procedimentos::getInstance(Conexao::getInstance());
 $textos = Textos::getInstance(Conexao::getInstance());
 
-$puxaProcedimentos = $procedimentos->rsDados('','','',$id);
+$blogs = Blogs::getInstance(Conexao::getInstance());
+$puxaBlogs = $blogs->rsDados();
+
+$puxaProcedimentos = $procedimentos->rsDados();
 $puxaBanners = $banner->rsDados(24);
 ?>
 
@@ -26,8 +20,9 @@ $puxaBanners = $banner->rsDados(24);
 <html lang="pt">
 
 <head>
-   <?php include "description.php";?>
+    <?php include "description.php";?>
     <?php include "inc-tagmanager-head.php";?>
+
 </head>
 
 <body>
@@ -47,7 +42,8 @@ $puxaBanners = $banner->rsDados(24);
                     <ul class="thm-breadcrumb list-unstyled">
                         <li><a href="<?php echo SITE_URL;?>">Home</a></li>
                     </ul>
-                    <h1><?php echo $puxaBanners->titulo1;?></h1> 
+                    <span><h1>Serviços</h1></span>
+                     
                 </div>
             </div>
         </section>
@@ -58,18 +54,28 @@ $puxaBanners = $banner->rsDados(24);
             <div class="services-two-shape-3 float-bob-y"></div>
             <div class="container">
                 <div class="row ">
-                    <?php foreach ($puxaProcedimentos as $procedimentos){?>
+                    <?php foreach ($puxaServico as $servico){?>
                     <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
                         <div class="services-two__single">
                             <div class="services-two__img">
-                                <img src="<?php echo SITE_URL;?>/img/<?php echo $procedimentos->topico1_foto;?>" alt="">
+                                    <?php if(isset($puxaServico->foto) && $puxaServico->foto != '') { ?>
+                                        <img src="<?php echo SITE_URL;?>/img/<?php echo $puxaServico->foto;?>" alt="">
+                                    <?php } else {?>
+                                        <span><img src="https://dummyimage.com/270x200/ddd/000" alt=""></span> 
+                                    <?php } ?>
+                                <img src="<?php echo SITE_URL;?>/img/<?php echo $servico->foto;?>" alt="">
                             </div>
                             <div class="services-two__content">
                                 <div class="services-two__icon">
-                                    <img src="<?php echo SITE_URL;?>/img/<?php echo $procedimentos->icone;?>" alt="">
+                                    <?php if(isset($puxaServico->foto) && $puxaServico->foto != '') { ?>
+                                        <img src="<?php echo SITE_URL;?>/img/<?php echo $puxaServico->foto;?>" alt="">
+                                    <?php } else {?>
+                                        <span><img src="https://dummyimage.com/32x32/ddd/000" alt=""></span> 
+                                    <?php } ?>
+                                    <img src="<?php echo SITE_URL;?>/img/<?php echo $servico->foto;?>" alt="">
                                 </div>
                                 <div class="services-two__content-inner">
-                                    <h3 class="services-two__title"><a href="<?php echo SITE_URL;?>/site/loja/<?php echo $procedimentos->url_amigavel;?>"><?php echo $procedimentos->titulo;?></a></h3>
+                                    <h3 class="services-two__title"><a href="<?php echo SITE_URL;?>/servicos/<?php echo $servico->name_url;?>"><?php echo $servico->titulo;?></a></h3>
                                 </div>
                             </div>
                         </div>

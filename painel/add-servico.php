@@ -53,6 +53,30 @@ $servico->add();
 
                                         <hr>
 
+                                        <h4>Meta Tags</h4>
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-12">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Title</label>
+                                                    <input type="text" class="form-control" name="meta_title" >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Keywords</label>
+                                                    <input type="text" class="form-control" name="meta_keywords" >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Description</label>
+                                                    <input type="text" class="form-control" name="meta_description" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <br>
+
                                         <h4>Seção 1</h4>
                                         <div class="row">
                                             <div class="col-md-6 col-sm-12">

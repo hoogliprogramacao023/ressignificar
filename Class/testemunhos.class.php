@@ -136,9 +136,11 @@ if(empty($TestemunhosInstanciada)) {
 					$stm->bindValue(5, $embed); 
 					$stm->bindValue(6, $id);   
 					$stm->execute(); 
+					exit;
 					//var_dump($_POST); exit;
 				} catch(PDOException $erro){
 					echo $erro->getMessage(); 
+					exit;
 				}
 
 				echo "	<script>

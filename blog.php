@@ -72,7 +72,7 @@ $sessao1 = $textos->rsDados(69);
                                     <li><a href="<?php echo SITE_URL;?>/blog/<?php echo $blog->url_amigavel;?>"><i class="far fa-user-circle"></i> <?php echo $blog->postado_por;?> </a>
                                     </li>
                                 </ul>
-                                <h3 class="blog-one__title"><a href="<?php echo SITE_URL;?>/blog/<?php echo $blog->url_amigavel;?>"><?php echo $blog->breve;?></a></h3>
+                                <h2 class="blog-one__title"><a href="<?php echo SITE_URL;?>/blog/<?php echo $blog->url_amigavel;?>"><?php echo $blog->breve;?></a></h2>
                             </div>
                         </div>
                     </div>

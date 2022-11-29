@@ -3,6 +3,7 @@ include "Class/textos.class.php";
 include "Class/blogs.class.php";
 
 $blog = Blogs::getInstance(Conexao::getInstance());
+$descBlog = $blog->rsDados();
 $textos = Textos::getInstance(Conexao::getInstance());
 
 $id = '';

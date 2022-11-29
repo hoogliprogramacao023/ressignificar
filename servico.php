@@ -9,7 +9,7 @@
     
     $banner = Banners::getInstance(Conexao::getInstance());
     $textos = Textos::getInstance(Conexao::getInstance());
-    $especialidades = Servicos::getInstance(Conexao::getInstance());
+    $especialidades = Especialidades::getInstance(Conexao::getInstance());
     $servico = Servico::getInstance(Conexao::getInstance());
     $infoSistema = ConfigSistema::getInstance(Conexao::getInstance());
     $faqs = Faqs::getInstance(Conexao::getInstance());
@@ -24,10 +24,10 @@
 <html lang="pt">
 
 <head>
-    <title><?php if(isset($metastags->meta_title_produtos) && !empty($metastags->meta_title_produtos)){echo $metastags->meta_title_produtos;}?></title>
-    <meta name="description" content="<?php if(isset($metastags->meta_description_produtos) && !empty($metastags->meta_description_produtos)){echo $metastags->meta_description_produtos;}?>"/>
-	<meta name="keywords" content="<?php if(isset($metastags->meta_keywords_produtos) && !empty($metastags->meta_keywords_produtos)){echo $metastags->meta_keywords_produtos;}?>">
-	<meta name="twitter:card" content="<?php if(isset($metastags->meta_title_produtos) && !empty($metastags->meta_title_produtos)){echo $metastags->meta_title_produtos;}?>" />
+    <title><?php if(isset($descServico->meta_title) && !empty($descServico->meta_title)){echo $descServico->meta_title;}?></title>
+    <meta name="description" content="<?php if(isset($descServico->meta_description) && !empty($descServico->meta_description)){echo $descServico->meta_description;}?>"/>
+	<meta name="keywords" content="<?php if(isset($descServico->meta_keywords) && !empty($descServico->meta_keywords)){echo $descServico->meta_keywords;}?>">
+	<meta name="twitter:card" content="<?php if(isset($descServico->meta_title) && !empty($descServico->meta_title)){echo $descServico->meta_title;}?>" />
 
    <?php include "description.php";?>
     <?php include "inc-tagmanager-head.php";?>
@@ -51,7 +51,7 @@
                     <ul class="thm-breadcrumb list-unstyled">
                         <li><a href="<?php echo SITE_URL;?>">Home</a></li>
                     </ul>
-                    <h2 style="color:#484848;"><?php echo $descServico->titulo;?></h2>
+                    <span><h2 style="color:#484848;"><?php echo $descServico->titulo;?></h2></span>
                 </div>
             </div>
         </section>
@@ -68,12 +68,12 @@
                             <div class="service-details__category">
                                 <ul class="service-details__category-list list-unstyled nav nav-tabs" id="myTab" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link <?php if($i == 0){?>active<?php } ?>" data-toggle="tab" href="<?php echo $descServico->servico1_link;?>" role="tab" aria-controls="<?php echo $descservico->id;?>" aria-selected="true">
+                                        <a class="nav-link " data-toggle="tab" href="/servicos/<?php echo $descServico->servico1_link;?>" role="tab" aria-controls="<?php echo $descservico->id;?>" aria-selected="true">
                                         <?php echo $descServico->servico1;?><span class="fa fa-angle-right"></span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link <?php if($i == 0){?>active<?php } ?>" data-toggle="tab" href="<?php echo $descServico->servico2_link;?>" role="tab" aria-controls="<?php echo $descservico->id;?>" aria-selected="true">
+                                        <a class="nav-link ?>" data-toggle="tab" href="<?php echo $descServico->servico2_link;?>" role="tab" aria-controls="<?php echo $descservico->id;?>" aria-selected="true">
                                         <?php echo $descServico->servico2;?><span class="fa fa-angle-right"></span>
                                         </a>
                                     </li>
@@ -102,7 +102,7 @@
                             <div class="service-details__need-help-icon">
                                 <span class="icon-phone-call"></span>
                             </div>
-                            <h2 class="service-details__need-help-title"><?php echo $descServico->cta_pergunta ?></h2>
+                            <span><h2 class="service-details__need-help-title"><?php echo $descServico->cta_pergunta ?></h2></span>
                             <div class="service-details__need-help-contact">
                                 <p><?php echo $descServico->cta_botao; ?></p>
                                 <a href="tel:<?php echo $infoSistema->telefone1; ?>"> <?php echo $infoSistema->telefone1; ?></a>
@@ -118,8 +118,12 @@
                         <div class="service-details__right tab-pane fade <?php if($i == 0){?>show active<?php } ?>" id="<?php echo $especialidade->id;?>" role="tabpanel" aria-labelledby="<?php echo $especialidade->id;?>-tab">
                             <div class="service-details__content">
                                 <div class="texto_secao1">
-                                    <img src="https://via.placeholder.com/770x445" class="img-fluid" alt="">
-                                    <h2><?php echo $descServico->titulo2;?></h2>
+                                        <?php if(isset($descServico->foto) && $descServico->foto != '') { ?>
+                                            <img src="<?php echo SITE_URL;?>/img/<?php echo $descServico->foto;?>" alt="">
+                                        <?php } else {?>
+                                            <img src="https://via.placeholder.com/770x445" class="img-fluid" alt="">
+                                        <?php } ?>
+                                    <h1><?php echo $descServico->titulo2;?></h1>
                                     <br>
                                     <?php echo $descServico->texto;?>
                                 </div>
@@ -133,6 +137,7 @@
                                 <li><?php echo $descServico->item5;?></li>
                                 <li><?php echo $descServico->item6;?></li>
                                 <li><?php echo $descServico->item7;?></li>
+                                <li><a href="servicos/terapia-de-casal">teste</a></li>
                             </ul>
                                 <div class="texto_secao1">
                                     <p><?php echo $descServico->texto2;?></p>
@@ -154,6 +159,7 @@
                    
                     </div>
 
+
                     <div class="col-xl-8 col-lg-7 col-sm-12">
                             <div class="row">
                                 <div class="service-details__points-two">
@@ -164,7 +170,7 @@
                                                     <div class="service-details__points-two-icon">
                                                         <span class="icon-long-paper-roll"></span>
                                                     </div>
-                                                    <h4><?php echo $descServico->titulo3; ?></h4>
+                                                    <h2><?php echo $descServico->titulo3; ?></h2>
                                                     <p><?php echo $descServico->texto4; ?></p>
                                                 </div>
                                             </div>
@@ -175,7 +181,7 @@
                                                     <div class="service-details__points-two-icon">
                                                         <span class="icon-wallpaper-8"></span>
                                                     </div>
-                                                    <h4><?php echo $descServico->titulo4; ?></h4>
+                                                    <h2><?php echo $descServico->titulo4; ?></h2>
                                                     <p><?php echo $descServico->texto5; ?></p>
                                                 </div>
                                             </div>
@@ -202,7 +208,7 @@
                                     </div>
                                     <div class="col-xl-6 col-sm-12">
                                         <div class="service-details__benefits-right">
-                                            <h3 class="service-details__benefits-title"><?php echo $descServico->titulo5 ?></h3>
+                                            <h2 class="service-details__benefits-title"><?php echo $descServico->titulo5 ?></h2>
                                             <p class="service-betails__benefits-text-1"><?php echo $descServico->texto6 ?></p>
                                             <ul class="list-unstyled service-details__benefits-points">
                                                 <li>
@@ -251,7 +257,7 @@
                                 <div class="accrodion-grp" data-grp-name="faq-one-accrodion">
                                     <div class="accrodion <?php if ($faqs == 0) { echo "active"; } ?>">
                                         <div class="accrodion-title">
-                                            <h4><?php echo $descServico->pergunta1;?></h4>
+                                            <h3><?php echo $descServico->pergunta1;?></h3>
                                         </div>
                                         <div class="accrodion-content">
                                             <div class="inner">
@@ -261,7 +267,7 @@
                                     </div>
                                     <div class="accrodion <?php if ($faqs == 0) { echo "active"; } ?>">
                                         <div class="accrodion-title">
-                                            <h4><?php echo $descServico->pergunta2;?></h4>
+                                            <h3><?php echo $descServico->pergunta2;?></h3>
                                         </div>
                                         <div class="accrodion-content">
                                             <div class="inner">
@@ -271,7 +277,7 @@
                                     </div>     
                                     <div class="accrodion <?php if ($faqs == 0) { echo "active"; } ?>">
                                         <div class="accrodion-title">
-                                            <h4><?php echo $descServico->pergunta3;?></h4>
+                                            <h3><?php echo $descServico->pergunta3;?></h3>
                                         </div>
                                         <div class="accrodion-content">
                                             <div class="inner">
@@ -281,7 +287,7 @@
                                     </div> 
                                     <div class="accrodion <?php if ($faqs == 0) { echo "active"; } ?>">
                                         <div class="accrodion-title">
-                                            <h4><?php echo $descServico->pergunta4;?></h4>
+                                            <h3><?php echo $descServico->pergunta4;?></h3>
                                         </div>
                                         <div class="accrodion-content">
                                             <div class="inner">

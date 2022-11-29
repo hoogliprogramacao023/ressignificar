@@ -84,6 +84,95 @@ if(empty($ServicesInstanciada)) {
 		function add($redireciona='') {
 			if(isset($_POST['acao']) && $_POST['acao'] == 'addServices') {
 
+				$maximo = 120000;
+                // Verificação
+                if($_FILES["imagem1"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["imagem1"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
+				if($_FILES["imagem2"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["imagem2"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
+				if($_FILES["imagem3"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["imagem3"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
+				if($_FILES["imagem4"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["imagem4"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
+				if($_FILES["icone1"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["icone1"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
+				if($_FILES["icone2"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["icone2"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
+				if($_FILES["icone3"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["icone3"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
+				if($_FILES["icone4"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["icone4"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
 
 				$titulo = filter_input(INPUT_POST, 'titulo');
 				$subtitulo = filter_input(INPUT_POST, 'subtitulo');
@@ -115,7 +204,7 @@ if(empty($ServicesInstanciada)) {
 							$pastaArquivos = '../img';
 						}
 						
-						$sql = "INSERT INTO tbl_services (titulo, subtitulo, titulo1, subtitulo1, titulo2, subtitulo2, titulo3, subtitulo3, titulo4, subtitulo4, texto, nome_botao, link_botao, titulo5, subtitulo5, item1, texto1, item2, texto2, item3, texto3) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
+						$sql = "INSERT INTO tbl_services (titulo, subtitulo, titulo1, subtitulo1, titulo2, subtitulo2, titulo3, subtitulo3, titulo4, subtitulo4, texto, nome_botao, link_botao, titulo5, subtitulo5, item1, texto1, item2, texto2, item3, texto3, imagem1, imagem2, imagem3, imagem4, icone1, icone2, icone3, icone4 ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
 						$stm = $this->pdo->prepare($sql);   
 						$stm->bindValue(1, $titulo);   
 						$stm->bindValue(2, $subtitulo);   
@@ -138,6 +227,14 @@ if(empty($ServicesInstanciada)) {
                         $stm->bindValue(19, $texto2);
 						$stm->bindValue(20, $item3);
                         $stm->bindValue(21, $texto3);
+						$stm->bindValue(22, upload('imagem1', $pastaArquivos, 'N'));   
+						$stm->bindValue(23, upload('imagem2', $pastaArquivos, 'N'));  
+						$stm->bindValue(24, upload('imagem3', $pastaArquivos, 'N'));  
+						$stm->bindValue(25, upload('imagem4', $pastaArquivos, 'N'));  
+						$stm->bindValue(26, upload('icone1', $pastaArquivos, 'N'));
+						$stm->bindValue(27, upload('icone2', $pastaArquivos, 'N'));
+						$stm->bindValue(28, upload('icone3', $pastaArquivos, 'N'));
+						$stm->bindValue(29, upload('icone4', $pastaArquivos, 'N'));
 						$stm->execute(); 
 						$idServices = $this->pdo->lastInsertId();
 						
@@ -159,6 +256,97 @@ if(empty($ServicesInstanciada)) {
 		
 		function editar($redireciona='services.php') {
 			if(isset($_POST['acao']) && $_POST['acao'] == 'editaServices') {
+
+
+				$maximo = 120000;
+                // Verificação
+                if($_FILES["imagem1"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["imagem1"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
+				if($_FILES["imagem2"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["imagem2"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
+				if($_FILES["imagem3"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["imagem3"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
+				if($_FILES["imagem4"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["imagem4"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
+				if($_FILES["icone1"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["icone1"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
+				if($_FILES["icone2"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["icone2"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
+				if($_FILES["icone3"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["icone3"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
+				if($_FILES["icone4"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["icone4"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
 
                 $titulo = filter_input(INPUT_POST, 'titulo');
 				$subtitulo = filter_input(INPUT_POST, 'subtitulo');
@@ -191,7 +379,7 @@ if(empty($ServicesInstanciada)) {
 							$pastaArquivos = '../img';
 						}
 				
-					$sql = "UPDATE tbl_services SET titulo=?, subtitulo=?, titulo1=?, subtitulo1=?, titulo2=?, subtitulo2=?, titulo3=?, subtitulo3=?, titulo4=?, subtitulo4=?, texto=?, nome_botao=?, link_botao=?, titulo5=?, subtitulo5=?, item1=?, texto1=?, item2=?, texto2=?, item3=?, texto3=? WHERE id=?";   
+					$sql = "UPDATE tbl_services SET titulo=?, subtitulo=?, titulo1=?, subtitulo1=?, titulo2=?, subtitulo2=?, titulo3=?, subtitulo3=?, titulo4=?, subtitulo4=?, texto=?, nome_botao=?, link_botao=?, titulo5=?, subtitulo5=?, item1=?, texto1=?, item2=?, texto2=?, item3=?, texto3=?, imagem1=?, imagem2=?, imagem3=?, imagem4=?, icone1=?, icone2=?, icone3=?, icone4=? WHERE id=?";   
 					$stm = $this->pdo->prepare($sql);   
                     $stm->bindValue(1, $titulo);   
                     $stm->bindValue(2, $subtitulo);   
@@ -214,7 +402,15 @@ if(empty($ServicesInstanciada)) {
 					$stm->bindValue(19, $texto2);
 					$stm->bindValue(20, $item3);
 					$stm->bindValue(21, $texto3);
-					$stm->bindValue(22, $id);   
+					$stm->bindValue(22, upload('imagem1', $pastaArquivos, 'N'));   
+					$stm->bindValue(23, upload('imagem2', $pastaArquivos, 'N'));  
+					$stm->bindValue(24, upload('imagem3', $pastaArquivos, 'N'));  
+					$stm->bindValue(25, upload('imagem4', $pastaArquivos, 'N'));  
+					$stm->bindValue(26, upload('icone1', $pastaArquivos, 'N'));
+					$stm->bindValue(27, upload('icone2', $pastaArquivos, 'N'));
+					$stm->bindValue(28, upload('icone3', $pastaArquivos, 'N'));
+					$stm->bindValue(29, upload('icone4', $pastaArquivos, 'N'));
+					$stm->bindValue(30, $id);   
 					$stm->execute(); 
 				} catch(PDOException $erro){
 					echo $erro->getMessage(); 

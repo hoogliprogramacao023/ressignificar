@@ -158,6 +158,11 @@ if(empty($ServicoInstanciada)) {
                 $item13 = filter_input(INPUT_POST, 'item13');
                 $item14 = filter_input(INPUT_POST, 'item14');
                 $name_url = filter_input(INPUT_POST, 'name_url');
+                //META TAGS
+                $meta_title = filter_input(INPUT_POST, 'meta_title');
+				$meta_keywords = filter_input(INPUT_POST, 'meta_keywords');
+				$meta_description = filter_input(INPUT_POST, 'meta_description');
+
 
 					try{
 
@@ -167,7 +172,7 @@ if(empty($ServicoInstanciada)) {
 							$pastaArquivos = '../img';
 						}
 						
-						$sql = "INSERT INTO tbl_servico (titulo, subtitulo, titulo2, texto, servico1, servico2, servico3, servico4, servico5, servico1_link, servico2_link, servico3_link, servico4_link, servico5_link, cta_pergunta, cta_botao, texto2, item1, item2, item3, item4, item5, item6, item7, texto3, nome_botao, link_botao, titulo3, texto4, titulo4, texto5, foto, titulo5, texto6, item8, item9, item10, pergunta1, resposta1, pergunta2, resposta2, pergunta3, resposta3, pergunta4, resposta4, item11, item12, item13, item14, name_url, foto1) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
+						$sql = "INSERT INTO tbl_servico (titulo, subtitulo, titulo2, texto, servico1, servico2, servico3, servico4, servico5, servico1_link, servico2_link, servico3_link, servico4_link, servico5_link, cta_pergunta, cta_botao, texto2, item1, item2, item3, item4, item5, item6, item7, texto3, nome_botao, link_botao, titulo3, texto4, titulo4, texto5, foto, titulo5, texto6, item8, item9, item10, pergunta1, resposta1, pergunta2, resposta2, pergunta3, resposta3, pergunta4, resposta4, item11, item12, item13, item14, name_url, foto1, meta_title, meta_keywords, meta_description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
 						$stm = $this->pdo->prepare($sql);   
 						$stm->bindValue(1, $titulo);
 						$stm->bindValue(2, $subtitulo);
@@ -220,7 +225,9 @@ if(empty($ServicoInstanciada)) {
                         $stm->bindValue(49, $item14);
                         $stm->bindValue(50, $name_url);
                         $stm->bindValue(51, upload('foto1', $pastaArquivos, 'N')); 
-
+                        $stm->bindValue(52, $meta_title); 
+                        $stm->bindValue(53, $meta_keywords); 
+                        $stm->bindValue(54, $meta_description); 
 						$stm->execute(); 
 						$idServico = $this->pdo->lastInsertId();
 						
@@ -318,7 +325,9 @@ if(empty($ServicoInstanciada)) {
                 $item13 = filter_input(INPUT_POST, 'item13');
                 $item14 = filter_input(INPUT_POST, 'item14');
                 $name_url = filter_input(INPUT_POST, 'name_url');
-
+                $meta_title = filter_input(INPUT_POST, 'meta_title');
+				$meta_keywords = filter_input(INPUT_POST, 'meta_keywords');
+				$meta_description = filter_input(INPUT_POST, 'meta_description');
 				
 				try { 
 
@@ -328,7 +337,7 @@ if(empty($ServicoInstanciada)) {
 							$pastaArquivos = '../img';
 						}
 				
-					$sql = "UPDATE tbl_servico SET titulo=?, subtitulo=?, titulo2=?, texto=?, servico1=?, servico2=?, servico3=?, servico4=?, servico5=?, servico1_link=?, servico2_link=?, servico3_link=?, servico4_link=?, servico5_link=?, cta_pergunta=?, cta_botao=?, texto2=?, item1=?, item2=?, item3=?, item4=?, item5=?, item6=?, item7=?, texto3=?, nome_botao=?, link_botao=?, titulo3=?, texto4=?, titulo4=?, texto5=?, foto=?, titulo5=?, texto6=?, item8=?, item9=?, item10=?, pergunta1=?, resposta1=?, pergunta2=?, resposta2=?, pergunta3=?, resposta3=?, pergunta4=?, resposta4=?, item11=?, item12=?, item13=?, item14=?, name_url=?, foto1=? WHERE id=?";   
+					$sql = "UPDATE tbl_servico SET titulo=?, subtitulo=?, titulo2=?, texto=?, servico1=?, servico2=?, servico3=?, servico4=?, servico5=?, servico1_link=?, servico2_link=?, servico3_link=?, servico4_link=?, servico5_link=?, cta_pergunta=?, cta_botao=?, texto2=?, item1=?, item2=?, item3=?, item4=?, item5=?, item6=?, item7=?, texto3=?, nome_botao=?, link_botao=?, titulo3=?, texto4=?, titulo4=?, texto5=?, foto=?, titulo5=?, texto6=?, item8=?, item9=?, item10=?, pergunta1=?, resposta1=?, pergunta2=?, resposta2=?, pergunta3=?, resposta3=?, pergunta4=?, resposta4=?, item11=?, item12=?, item13=?, item14=?, name_url=?, foto1=?, meta_title=?, meta_keywords=?, meta_description=? WHERE id=?";   
 					$stm = $this->pdo->prepare($sql);   
                     $stm->bindValue(1, $titulo);
                     $stm->bindValue(2, $subtitulo);
@@ -381,7 +390,10 @@ if(empty($ServicoInstanciada)) {
                     $stm->bindValue(49, $item14);
                     $stm->bindValue(50, $name_url);
                     $stm->bindValue(51, upload('foto1', $pastaArquivos, 'N')); 
-					$stm->bindValue(52, $id);   
+                    $stm->bindValue(52, $meta_title); 
+                    $stm->bindValue(53, $meta_keywords); 
+                    $stm->bindValue(54, $meta_description); 
+					$stm->bindValue(55, $id);   
 					$stm->execute(); 
 				} catch(PDOException $erro){
 					echo $erro->getMessage(); 

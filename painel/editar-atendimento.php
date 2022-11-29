@@ -10,7 +10,7 @@ if(isset($_GET['id'])){
 }
 
 $atendimento->editar();
-$editaAtendimento = $atendimento->rsDados($id);
+$editaAtendimento = $atendimento->rsDados(11);
 
 ?>
 <!DOCTYPE html>
@@ -138,6 +138,40 @@ $editaAtendimento = $atendimento->rsDados($id);
                                                 <label  class="col-form-label">Subtítulo 2</label>
                                                 <input class="form-control" type="text" name="subtitulo2" value="<?php if(isset($editaAtendimento->subtitulo2) && !empty($editaAtendimento->subtitulo2)){ echo $editaAtendimento->subtitulo2;}?>" />
                                             </div>
+                                        </div>
+
+                                        <br>
+
+                                        <div class="row">
+                                           <div class="col-md-6">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Imagem 1</label>
+                                                    <input type="file" name="imagem1" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <?php if(isset($editaHome->imagem1) && !empty($editaHome->imagem1)){ ?>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <img src="../img/<?php echo $editaHome->imagem1;?>"  width="100">
+                                                </div>
+                                            </div>
+                                            <?php }?>
+                                        </div>
+                                        
+                                        <div class="row">
+                                           <div class="col-md-6">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Imagem 2</label>
+                                                    <input type="file" name="imagem2" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <?php if(isset($editaHome->imagem2) && !empty($editaHome->imagem2)){ ?>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <img src="../img/<?php echo $editaHome->imagem2;?>"  width="100">
+                                                </div>
+                                            </div>
+                                            <?php }?>
                                         </div>
                                     </div>
 

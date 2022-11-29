@@ -65,7 +65,6 @@ $especialidades->excluir();
                                             if(count($puxaEspecialidades) > 0){
                                             foreach($puxaEspecialidades as $especialidade){?>
                                             <tr>
-                                                <td><?php echo formataData($especialidade->data_postagem);?></td>
                                                 <td>
                                                     <?php if(isset($especialidade->foto) && !empty($especialidade->foto)){?>
                                                     <img src="../img/<?php echo $especialidade->foto;?>" width="50">

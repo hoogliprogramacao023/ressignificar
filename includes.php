@@ -69,8 +69,8 @@ $servicos = Servicos::getInstance(Conexao::getInstance());
 // include "Class/faqs.class.php";
 // $faqs = Faqs::getInstance(Conexao::getInstance());
 
-// include "Class/especialidades.class.php";
-// $especialidades = Especialidades::getInstance(Conexao::getInstance());
+include "Class/especialidades.class.php";
+$especialidades = Especialidades::getInstance(Conexao::getInstance());
 
 // include "Class/categorias.class.php";
 // $categorias = Categorias::getInstance(Conexao::getInstance());

@@ -84,6 +84,29 @@ if(empty($AtendimentoInstanciada)) {
 		function add($redireciona='') {
 			if(isset($_POST['acao']) && $_POST['acao'] == 'addAtendimento') {
 
+				$maximo = 120000;
+                // Verificação
+                if($_FILES["imagem1"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["imagem1"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
+				if($_FILES["imagem2"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["imagem2"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
 
 				$titulo = filter_input(INPUT_POST, 'titulo');
 				$subtitulo = filter_input(INPUT_POST, 'subtitulo');
@@ -109,7 +132,7 @@ if(empty($AtendimentoInstanciada)) {
 							$pastaArquivos = '../img';
 						}
 						
-						$sql = "INSERT INTO tbl_atendimento (titulo, subtitulo, texto, item1, item2, pergunta1, resposta1, pergunta2, resposta2, pergunta3, resposta3, pergunta4, resposta4, titulo2, subtitulo2) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
+						$sql = "INSERT INTO tbl_atendimento (titulo, subtitulo, texto, item1, item2, pergunta1, resposta1, pergunta2, resposta2, pergunta3, resposta3, pergunta4, resposta4, titulo2, subtitulo2, imagem1, imagem2) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
 						$stm = $this->pdo->prepare($sql);   
 						$stm->bindValue(1, $titulo);   
 						$stm->bindValue(2, $subtitulo);   
@@ -126,6 +149,8 @@ if(empty($AtendimentoInstanciada)) {
                         $stm->bindValue(13, $resposta4);
 						$stm->bindValue(14, $titulo2);
 						$stm->bindValue(15, $subtitulo2);
+						$stm->bindValue(16, upload('imagem1', $pastaArquivos, 'N'));   
+						$stm->bindValue(17, upload('imagem2', $pastaArquivos, 'N'));  
 						$stm->execute(); 
 						$idAtendimento = $this->pdo->lastInsertId();
 						
@@ -148,6 +173,29 @@ if(empty($AtendimentoInstanciada)) {
 		function editar($redireciona='atendimento.php') {
 			if(isset($_POST['acao']) && $_POST['acao'] == 'editaAtendimento') {
 
+				$maximo = 120000;
+                // Verificação
+                if($_FILES["imagem1"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["imagem1"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
+				if($_FILES["imagem2"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["imagem2"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
 
                 $titulo = filter_input(INPUT_POST, 'titulo');
 				$subtitulo = filter_input(INPUT_POST, 'subtitulo');
@@ -174,7 +222,7 @@ if(empty($AtendimentoInstanciada)) {
 							$pastaArquivos = '../img';
 						}
 				
-					$sql = "UPDATE tbl_atendimento SET titulo=?, subtitulo=?, texto=?, item1=?, item2=?, pergunta1=?, resposta1=?, pergunta2=?, resposta2=?, pergunta3=?, resposta3=?, pergunta4=?, resposta4=?, titulo2=?, subtitulo2=? WHERE id=?";   
+					$sql = "UPDATE tbl_atendimento SET titulo=?, subtitulo=?, texto=?, item1=?, item2=?, pergunta1=?, resposta1=?, pergunta2=?, resposta2=?, pergunta3=?, resposta3=?, pergunta4=?, resposta4=?, titulo2=?, subtitulo2=?, imagem1=?, imagem2=? WHERE id=?";   
 					$stm = $this->pdo->prepare($sql);   
                     $stm->bindValue(1, $titulo);   
                     $stm->bindValue(2, $subtitulo);   
@@ -191,7 +239,9 @@ if(empty($AtendimentoInstanciada)) {
                     $stm->bindValue(13, $resposta4);
                     $stm->bindValue(14, $titulo2);
                     $stm->bindValue(15, $subtitulo2);
-					$stm->bindValue(16, $id);   
+					$stm->bindValue(16, upload('imagem1', $pastaArquivos, 'N'));   
+					$stm->bindValue(17, upload('imagem2', $pastaArquivos, 'N'));
+					$stm->bindValue(18, $id);   
 					$stm->execute(); 
 				} catch(PDOException $erro){
 					echo $erro->getMessage(); 

@@ -130,6 +130,30 @@ if(empty($AboutInstanciada)) {
 					exit;
                 }
 
+
+                if($_FILES["paralax_1"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["paralax_1"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
+
+                if($_FILES["paralax_2"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["paralax_2"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
                 $titulo = filter_input(INPUT_POST, 'titulo');
                 $subtitulo = filter_input(INPUT_POST, 'subtitulo');
                 $subtitulo2 = filter_input(INPUT_POST, 'subtitulo2');
@@ -163,7 +187,7 @@ if(empty($AboutInstanciada)) {
 							$pastaArquivos = '../img';
 						}
 						
-						$sql = "INSERT INTO tbl_about (titulo, subtitulo, subtitulo2, texto, titulo1, texto1, titulo2, texto2, titulo3, item1, item2, item3, item4, subtitulo3, titulo4, texto3, nome1, profissao1, foto1, nome2, profissao2, foto2, nome3, profissao3, foto3, foto, titulo5, texto4) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
+						$sql = "INSERT INTO tbl_about (titulo, subtitulo, subtitulo2, texto, titulo1, texto1, titulo2, texto2, titulo3, item1, item2, item3, item4, subtitulo3, titulo4, texto3, nome1, profissao1, foto1, nome2, profissao2, foto2, nome3, profissao3, foto3, foto, titulo5, texto4, paralax_1, paralax_2) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
 						$stm = $this->pdo->prepare($sql);   
 						$stm->bindValue(1, $titulo);
 						$stm->bindValue(2, $subtitulo);
@@ -193,6 +217,8 @@ if(empty($AboutInstanciada)) {
                         $stm->bindValue(26, upload('foto', $pastaArquivos, 'N'));  
                         $stm->bindValue(27, $titulo5);  
                         $stm->bindValue(28, $texto4);  
+                        $stm->bindValue(29, upload('paralax_1', $pastaArquivos, 'N'));  
+                        $stm->bindValue(30, upload('paralax_2', $pastaArquivos, 'N'));  
 						$stm->execute(); 
 						$idAbout = $this->pdo->lastInsertId();
 						
@@ -286,6 +312,29 @@ if(empty($AboutInstanciada)) {
                     </script>";
 					exit;
                 }
+
+                if($_FILES["paralax_1"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["paralax_1"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
+
+
+                if($_FILES["paralax_2"]["size"] > $maximo) {
+                    echo "Erro! O arquivo enviado por você ultrapassa o ";
+                    $valorKb = $maximo / 1000;
+                    $tamanhoFoto = $_FILES["paralax_2"]["size"] /1000;
+                    echo "<script>
+                    alert('limite máximo de " . $valorKb . " KB! Envie outro arquivo. Sua imagem tem ".$tamanhoFoto." KB');
+                    history.back();
+                    </script>";
+					exit;
+                }
 				
 				try { 
 
@@ -295,7 +344,7 @@ if(empty($AboutInstanciada)) {
 							$pastaArquivos = '../img';
 						}
 				
-					$sql = "UPDATE tbl_about SET titulo=?, subtitulo=?, subtitulo2=?, texto=?, titulo1=?, texto1=?, titulo2=?, texto2=?, titulo3=?, item1=?, item2=?, item3=?, item4=?, subtitulo3=?, titulo4=?, texto3=?, nome1=?, profissao1=?, foto1=?, nome2=?, profissao2=?, foto2=?, nome3=?, profissao3=?, foto3=?, foto=?, titulo5=?, texto4=? WHERE id=?";   
+					$sql = "UPDATE tbl_about SET titulo=?, subtitulo=?, subtitulo2=?, texto=?, titulo1=?, texto1=?, titulo2=?, texto2=?, titulo3=?, item1=?, item2=?, item3=?, item4=?, subtitulo3=?, titulo4=?, texto3=?, nome1=?, profissao1=?, foto1=?, nome2=?, profissao2=?, foto2=?, nome3=?, profissao3=?, foto3=?, foto=?, titulo5=?, texto4=?, paralax_1=?, paralax_2=? WHERE id=?";   
 					$stm = $this->pdo->prepare($sql);   
                     $stm->bindValue(1, $titulo);
                     $stm->bindValue(2, $subtitulo);
@@ -325,7 +374,9 @@ if(empty($AboutInstanciada)) {
                     $stm->bindValue(26, upload('foto', $pastaArquivos, 'N'));  
                     $stm->bindValue(27, $titulo5);  
                     $stm->bindValue(28, $texto4); 
-					$stm->bindValue(29, $id);   
+                    $stm->bindValue(29, upload('paralax_1', $pastaArquivos, 'N'));  
+                    $stm->bindValue(30, upload('paralax_2', $pastaArquivos, 'N'));  
+					$stm->bindValue(31, $id);   
 					$stm->execute(); 
 				} catch(PDOException $erro){
 					echo $erro->getMessage(); 

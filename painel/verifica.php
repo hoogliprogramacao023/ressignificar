@@ -92,8 +92,8 @@ $doutores = Doutores::getInstance(Conexao::getInstance());
 include "../Class/convenios.class.php";
 $convenios = Convenios::getInstance(Conexao::getInstance());
 
-/* include "../Class/especialidades.class.php";
-$especialidades = Especialidades::getInstance(Conexao::getInstance()); */
+include "../Class/especialidades.class.php";
+$especialidades = Especialidades::getInstance(Conexao::getInstance());
 
  include "../Class/servicos.class.php";
 $servicos = Servicos::getInstance(Conexao::getInstance());

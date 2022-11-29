@@ -24,10 +24,10 @@
 <html lang="pt">
 
 <head>
-    <title><?php if(isset($metastags->meta_title_produtos) && !empty($metastags->meta_title_produtos)){echo $metastags->meta_title_produtos;}?></title>
-    <meta name="description" content="<?php if(isset($metastags->meta_description_produtos) && !empty($metastags->meta_description_produtos)){echo $metastags->meta_description_produtos;}?>"/>
-	<meta name="keywords" content="<?php if(isset($metastags->meta_keywords_produtos) && !empty($metastags->meta_keywords_produtos)){echo $metastags->meta_keywords_produtos;}?>">
-	<meta name="twitter:card" content="<?php if(isset($metastags->meta_title_produtos) && !empty($metastags->meta_title_produtos)){echo $metastags->meta_title_produtos;}?>" />
+    <title><?php if(isset($descServico->meta_title) && !empty($descServico->meta_title)){echo $descServico->meta_title;}?></title>
+    <meta name="description" content="<?php if(isset($descServico->meta_description) && !empty($descServico->meta_description)){echo $descServico->meta_description;}?>"/>
+	<meta name="keywords" content="<?php if(isset($descServico->meta_keywords) && !empty($descServico->meta_keywords)){echo $descServico->meta_keywords;}?>">
+	<meta name="twitter:card" content="<?php if(isset($descServico->meta_title) && !empty($descServico->meta_title)){echo $descServico->meta_title;}?>" />
 
    <?php include "description.php";?>
     <?php include "inc-tagmanager-head.php";?>
@@ -51,7 +51,7 @@
                     <ul class="thm-breadcrumb list-unstyled">
                         <li><a href="<?php echo SITE_URL;?>">Home</a></li>
                     </ul>
-                    <h2 style="color:#484848;"><?php echo $descServico->titulo;?></h2>
+                    <span><h2 style="color:#484848;"><?php echo $descServico->titulo;?></h2></span>
                 </div>
             </div>
         </section>
@@ -102,7 +102,7 @@
                             <div class="service-details__need-help-icon">
                                 <span class="icon-phone-call"></span>
                             </div>
-                            <h2 class="service-details__need-help-title"><?php echo $descServico->cta_pergunta ?></h2>
+                            <span><h2 class="service-details__need-help-title"><?php echo $descServico->cta_pergunta ?></h2></span>
                             <div class="service-details__need-help-contact">
                                 <p><?php echo $descServico->cta_botao; ?></p>
                                 <a href="tel:<?php echo $infoSistema->telefone1; ?>"> <?php echo $infoSistema->telefone1; ?></a>
@@ -116,8 +116,8 @@
                             <div class="service-details__content">
                                 <div class="texto_secao1">
                                 <img src="https://via.placeholder.com/770x445" class="img-fluid" alt="">
-                                    <span><?php echo $descServico->subtitulo;?></sp>
-                                    <h2><?php echo $descServico->titulo2;?></h2>
+                                    <span><?php echo $descServico->subtitulo;?></span>
+                                    <h1><?php echo $descServico->titulo2;?></h1>
                                     <br>
                                     <?php echo $descServico->texto;?>
                                     <ul class="servicos-list">
@@ -159,7 +159,7 @@
                                                     <div class="service-details__points-two-icon">
                                                         <span class="icon-long-paper-roll"></span>
                                                     </div>
-                                                    <h4><?php echo $descServico->titulo3; ?></h4>
+                                                    <h2><?php echo $descServico->titulo3; ?></h2>
                                                     <p><?php echo $descServico->texto4; ?></p>
                                                 </div>
                                             </div>
@@ -170,7 +170,7 @@
                                                     <div class="service-details__points-two-icon">
                                                         <span class="icon-wallpaper-8"></span>
                                                     </div>
-                                                    <h4><?php echo $descServico->titulo4; ?></h4>
+                                                    <h2><?php echo $descServico->titulo4; ?></h2>
                                                     <p><?php echo $descServico->texto5; ?></p>
                                                 </div>
                                             </div>
@@ -197,7 +197,7 @@
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="service-details__benefits-right">
-                                            <h3 class="service-details__benefits-title"><?php echo $descServico->titulo5 ?></h3>
+                                            <h2 class="service-details__benefits-title"><?php echo $descServico->titulo5 ?></h2>
                                             <p class="service-betails__benefits-text-1"><?php echo $descServico->texto6 ?></p>
                                             <ul class="list-unstyled service-details__benefits-points">
                                                 <li>

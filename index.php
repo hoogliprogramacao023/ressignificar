@@ -71,21 +71,13 @@
                             style="background-image: url('https://dummyimage.com/1920x785/d4cdd4/b2b3bd');"></div>
                         <div class="container">
                             <div class="row">
-                                <div class="col-xl-8">
+                                <div class="col-xl-10">
                                     <div class="main-slider-two__content">
                                         <div class="home-header-inner">
-                                            <h2><?php echo $puxaHome->titulo; ?></h2>
-                                            <h1><?php echo $puxaHome->subtitulo; ?></h1>
+                                            <h2><?php echo $puxaHome->subtitulo; ?></h2>
+                                            <h1><?php echo $puxaHome->titulo; ?></h1>
                                             <a href="<?php echo $puxaHome->link_botao; ?>" target="_blank" class="home-btn main-menu__btn"><?php echo $puxaHome->nome_botao; ?></a>
-                                        </div>
-                                        <p class="main-slider-two__sub-title"><?php echo $puxaBanners->titulo1;?></p>
-                                        <h2 class="main-slider-two__title"><?php echo $puxaBanners->titulo2;?></h2>
-                                        <?php if ($puxaBanners->nome_botao <> ""){?>
-                                        <div class="main-slider-two__btn-box">
-                                            <a href="<?php echo $puxaBanners->link_botao;?>" class="main-slider-two__btn thm-btn"><?php echo $puxaBanners->nome_botao;?></a>
-                                        </div>
-                                        <?php }?>
-                                        
+                                        </div>     
                                     </div>
                                 </div>
                             </div>
@@ -107,23 +99,63 @@
 			</div>
 		</section> -->
 
-		<section class="mt-5">
-			<div class="container">
-				<div class="row card-row">
-					<div class="card col-lg-4 col-md-12 col-sm-12">
-						<span class="index-card">01</span>
-						<h2><?php echo $puxaHome->topico1; ?></h2>
-					</div>
-
-					<div class="card col-lg-4 col-md-12 col-sm-12">
-						<span class="index-card">02</span>
-						<h2><?php echo $puxaHome->topico2; ?></h2>
-					</div>
-
-					<div class="card col-lg-4 col-md-12 col-sm-12">
-						<span class="index-card">03</span>
-						<h2><?php echo $puxaHome->topico3; ?></h2>
-					</div>
+        <section class="feature-two">
+			<div class="feature-two-shape-1 float-bob-x">
+				<img src="assets/images/shapes/feature-two-shape-1.png" alt="">
+			</div>
+			<div class="feature-two-shape-2 wow slideInRight animated" data-wow-delay="100ms" data-wow-duration="2500ms" style="visibility: visible; animation-duration: 2500ms; animation-delay: 100ms; animation-name: slideInRight;">
+				<img src="assets/images/shapes/feature-two-shape-2.png" alt="">
+			</div>
+			<div class="feature-two__inner">
+				<div class="feature-two-bg" style="background: #5a5557;"></div>
+				<div class="container">
+					<ul class="list-unstyled feature-two__list">
+						<li>
+							<div class="feature-two__content-box">
+								<div class="feature-two__icon">
+                                    <?php if(isset($puxaHome->icone1) && $puxaHome->icone1 != '') { ?>
+                                        <span><img src="./img/<?php echo $puxaHome->icone1 ?>" alt=""></span>
+                                    <?php } else {?>
+                                        <span class="icon-wallpaper-4"></span>
+                                    <?php } ?>
+								</div>
+								<div class="feature-two__content">
+									<div class="feature-two__count"></div>
+									<h3 class="feature-two__title"><a href="about.html"><?php echo $puxaHome->topico1; ?></a></h3>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="feature-two__content-box">
+								<div class="feature-two__icon">
+                                    <?php if(isset($puxaHome->icone1) && $puxaHome->icone1 != '') { ?>
+                                        <span><img src="./img/<?php echo $puxaHome->icone1 ?>" alt=""></span>
+                                    <?php } else {?>
+                                        <span class="icon-like"></span>
+                                    <?php } ?>
+								</div>
+								<div class="feature-two__content">
+									<div class="feature-two__count"></div>
+									<h3 class="feature-two__title"><a href="about.html"><?php echo $puxaHome->topico2; ?></a></h3>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="feature-two__content-box">
+								<div class="feature-two__icon">
+                                    <?php if(isset($puxaHome->icone1) && $puxaHome->icone1 != '') { ?>
+                                        <span><img src="./img/<?php echo $puxaHome->icone1 ?>" alt=""></span>
+                                    <?php } else {?>
+                                        <span class="icon-expert"></span>
+                                    <?php } ?>
+								</div>
+								<div class="feature-two__content">
+									<div class="feature-two__count"></div>
+									<h3 class="feature-two__title"><a href="team.html"><?php echo $puxaHome->topico3; ?></a></h3>
+								</div>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</section>
@@ -136,16 +168,18 @@
                             <div class="welcome-one__img-box wow slideInLeft" data-wow-delay="100ms"
                                 data-wow-duration="2500ms">
                                 <div class="welcome-one__img-1">
-                                    <img src="<?php echo SITE_URL;?>/img/<?php echo $textosHome->foto_6;?>" alt="">
+                                    <?php if(isset($puxaHome->foto1) && $puxaHome->foto1 != '') { ?>
+                                        <img src="<?php echo SITE_URL;?>/img/<?php echo $puxaHome->foto1;?>" alt="">
+                                    <?php } else {?>
+                                        <img src="https://dummyimage.com/370x435/000/fff" alt="">
+                                    <?php } ?>
                                 </div>
                                 <div class="welcome-one__img-2">
-                                    <img src="<?php echo SITE_URL;?>/img/<?php echo $textosHome->foto_6;?>" alt="">
-                                </div>
-                                <div class="welcome-one__experience">
-                                    <div class="welcome-one__experience-year">
-                                        <h3><?php echo $puxaHome->qtd_anos;?></h3>
-                                    </div>
-                                    <p class="welcome-one__experience-text"><?php echo $puxaHome->cat_anos;?></p>
+                                    <?php if(isset($puxaHome->foto2) && $puxaHome->foto2 != '') { ?>
+                                        <img src="<?php echo SITE_URL;?>/img/<?php echo $puxaHome->foto2;?>" alt="">
+                                    <?php } else {?>
+                                        <img src="https://dummyimage.com/370x435/000/fff" alt="">
+                                    <?php } ?>
                                 </div>
                                 <div class="welcome-one__dot">
                                     <img src="<?php echo SITE_URL;?>/img/<?php echo $textosHome->paralax_8;?>" alt="">
@@ -161,19 +195,39 @@
                                 <div class="section-title__line"></div>
                             </div>
                             <p class="welcome-one__text"><?php echo $puxaHome->texto1;?></p>
-                            <ul>
+                            <ul class="list-unstyled welcome-one__points">
+                               <li>
+									<div class="icon">
+										<span></span>
+									</div>
+									<div class="text">
+										<p><?php echo $puxaHome->item1;?></p>
+									</div>
+								</li>
                                 <li>
-                                <?php echo $puxaHome->item1;?>
-                                </li>
+									<div class="icon">
+										<span></span>
+									</div>
+									<div class="text">
+										<p><?php echo $puxaHome->item2;?></p>
+									</div>
+								</li>
                                 <li>
-                                <?php echo $puxaHome->item2;?>
-                                </li>
+									<div class="icon">
+										<span></span>
+									</div>
+									<div class="text">
+										<p><?php echo $puxaHome->item3;?></p>
+									</div>
+								</li>
                                 <li>
-                                <?php echo $puxaHome->item3;?>
-                                </li>
-                                <li>
-                                <?php echo $puxaHome->item4;?>
-                                </li>
+									<div class="icon">
+										<span></span>
+									</div>
+									<div class="text">
+										<p><?php echo $puxaHome->item4;?></p>
+									</div>
+								</li>
                             </ul>
                         </div>
                     </div>
@@ -200,7 +254,11 @@
                                     <div class="col-xl-6 col-lg-6 col-md-6">
                                         <div class="benefits-one__points-single">
                                             <div class="benefits-one__points-img">
-                                                <img src="<?php echo SITE_URL;?>/img/<?php echo $textosHome->paralax_6;?>" alt="">
+                                            <?php if(isset($puxaAtendimento->imagem1) && $puxaAtendimento->imagem1 != '') { ?>
+                                                    <img src="<?php echo SITE_URL;?>/img/<?php echo $puxaAtendimento->imagem1;?>" alt="">
+                                                <?php } else {?>
+                                                <span><img src="https://dummyimage.com/235x109/000/fff" alt=""></span> 
+                                            <?php } ?>
                                             </div>
                                             <ul class="list-unstyled benefits-one__points-list">
                                                 <li>
@@ -217,7 +275,11 @@
                                     <div class="col-xl-6 col-lg-6 col-md-6">
                                         <div class="benefits-one__points-single">
                                             <div class="benefits-one__points-img">
-                                                <img src="<?php echo SITE_URL;?>/img/<?php echo $textosHome->paralax_3;?>" alt="">
+                                                <?php if(isset($puxaAtendimento->imagem2) && $puxaAtendimento->imagem2 != '') { ?>
+                                                    <img src="<?php echo SITE_URL;?>/img/<?php echo $puxaAtendimento->imagem2;?>" alt="">
+                                                <?php } else {?>
+                                                    <span><img src="https://dummyimage.com/235x109/000/fff" alt=""></span>
+                                                <?php } ?>
                                             </div>
                                             <ul class="list-unstyled benefits-one__points-list">
                                                 <li>
@@ -240,7 +302,7 @@
                             <div class="accrodion-grp" data-grp-name="faq-one-accrodion">
                                 <div class="accrodion <?php if ($faqs == 0) { echo "active"; } ?>">
                                     <div class="accrodion-title">
-                                        <h4><?php echo $puxaAtendimento->pergunta1;?></h4>
+                                        <h3><?php echo $puxaAtendimento->pergunta1;?></h3>
                                     </div>
                                     <div class="accrodion-content">
                                         <div class="inner">
@@ -250,7 +312,7 @@
                                 </div>
                                 <div class="accrodion <?php if ($faqs == 0) { echo "active"; } ?>">
                                     <div class="accrodion-title">
-                                        <h4><?php echo $puxaAtendimento->pergunta2;?></h4>
+                                        <h3><?php echo $puxaAtendimento->pergunta2;?></h3>
                                     </div>
                                     <div class="accrodion-content">
                                         <div class="inner">
@@ -260,7 +322,7 @@
                                 </div>     
                                 <div class="accrodion <?php if ($faqs == 0) { echo "active"; } ?>">
                                     <div class="accrodion-title">
-                                        <h4><?php echo $puxaAtendimento->pergunta3;?></h4>
+                                        <h3><?php echo $puxaAtendimento->pergunta3;?></h3>
                                     </div>
                                     <div class="accrodion-content">
                                         <div class="inner">
@@ -270,7 +332,7 @@
                                 </div> 
                                 <div class="accrodion <?php if ($faqs == 0) { echo "active"; } ?>">
                                     <div class="accrodion-title">
-                                        <h4><?php echo $puxaAtendimento->pergunta4;?></h4>
+                                        <h3><?php echo $puxaAtendimento->pergunta4;?></h3>
                                     </div>
                                     <div class="accrodion-content">
                                         <div class="inner">
@@ -285,285 +347,349 @@
             </div>
         </section>
 
-		<section class="promovendo-saude wow fadeInUp" data-wow-delay="100ms">
+        <section class="services-two" id="services">
+			<div class="services-two-bg" style="background-image: url(assets/images/backgrounds/services-two-bg.jpg);">
+			</div>
+			<div class="services-two-shape-1 float-bob-x"></div>
+			<div class="services-two-shape-2 float-bob-y"></div>
+			<div class="services-two-shape-3 float-bob-y"></div>
 			<div class="container">
-				<div class="row mb-5 mobile-center">
-					<div class="col-12 mb-4">
-                        <div class="section-title text-center">
-                            <span class="section-title__tagline"><?php echo $puxaServices->subtitulo;?></span>
-                            <h2 class="section-title__title"><?php echo $puxaServices->titulo;?></h2>
-                            <div class="section-title__line"></div>
-                        </div>
-					</div>
-                        <div class="col-lg-3 col-md-6 col-sm-12 ">
-                            <div class="service-details__points-two-single">
-                                <div class="service-details__points-two-content">
-                                    <h4><?php echo $puxaServices->subtitulo1;?></h4>
-                                    <hr>
-                                    <p><?php echo $puxaServices->titulo1;?></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="service-details__points-two-single">
-                                <div class="service-details__points-two-content">
-                                    <h4><?php echo $puxaServices->subtitulo2;?></h4>
-                                    <hr>
-                                    <p><?php echo $puxaServices->titulo2;?></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="service-details__points-two-single">
-                                <div class="service-details__points-two-content">
-                                    <h4><?php echo $puxaServices->subtitulo3;?></h4>
-                                    <hr>
-                                    <p><?php echo $puxaServices->titulo3;?></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="service-details__points-two-single">
-                                <div class="service-details__points-two-content">
-                                    <h4><?php echo $puxaServices->subtitulo4;?></h4>
-                                    <hr>
-                                    <p><?php echo $puxaServices->titulo4;?></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mb-5 mobile-center">
-                            <div class="col-md-8 col-sm-8 text-services">
-                                <p><?php echo $puxaServices->texto;?></p>
-                            </div>
-                            <div class="col-md-4 col-sm-4">
-                                <a href="<?php echo $puxaServices->link_botao; ?>" class="home-btn main-menu__btn"><?php echo $puxaServices->nome_botao; ?></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 mb-4">
-                        <div class="section-title text-center">
-                            <span class="section-title__tagline"><?php echo $puxaServices->subtitulo5;?></span>
-                            <h2 class="section-title__title"><?php echo $puxaServices->titulo5;?></h2>
-                            <div class="section-title__line"></div>
-                        </div>
-
-
-					</div>
+				<div class="section-title text-center">
+					<span class="section-title__tagline"><?php echo $puxaServices->subtitulo;?></span>
+					<h2 class="section-title__title"><?php echo $puxaServices->titulo;?></h2>
+					<div class="section-title__line"></div>
 				</div>
-
-				<div class="row card-row">
-					<div class="card col-lg-4 col-md-6 col-sm-12">
-                        <span class="index-card">01</span>
-						<h2><?php echo $puxaServices->item1;?></h2>
-						<p><?php echo $puxaServices->texto1;?></p>
+				<div class="row">
+					<div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp animated" data-wow-delay="100ms" style="visibility: visible; animation-delay: 100ms; animation-name: fadeInUp;">
+						<!--Services Two single-->
+						<div class="services-two__single">
+							<div class="services-two__img">
+                                <?php if(isset($puxaServices->imagem1) && $puxaServices->imagem1 != '') { ?>
+                                    <img src="<?php echo SITE_URL;?>/img/<?php echo $puxaServices->imagem1;?>" alt="">
+                                <?php } else {?>
+                                    <span><img src="https://dummyimage.com/270x200/000/fff" alt=""></span> 
+                                <?php } ?>
+							</div>
+							<div class="services-two__content">
+								<div class="services-two__icon">
+                                    <?php if(isset($puxaServices->icone1) && $puxaServices->icone1 != '') { ?>
+                                        <img src="<?php echo SITE_URL;?>/img/<?php echo $puxaServices->icone1;?>" alt="">
+                                    <?php } else {?>
+                                        <span><img src="https://dummyimage.com/48x48/ddd/000" alt=""></span> 
+                                    <?php } ?>
+								</div>
+								<div class="services-two__content-inner">
+                                    <h3 id="first-child-services" class="services-two__title"><?php echo $puxaServices->subtitulo1;?></h3>
+									<p class="services-two__text"><?php echo $puxaServices->titulo1;?></p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp animated" data-wow-delay="200ms" style="visibility: visible; animation-delay: 200ms; animation-name: fadeInUp;">
+						<!--Services Two single-->
+						<div class="services-two__single">
+                        <div class="services-two__img">
+                                <?php if(isset($puxaServices->imagem2) && $puxaServices->imagem2 != '') { ?>
+                                    <img src="<?php echo SITE_URL;?>/img/<?php echo $puxaServices->imagem2;?>" alt="">
+                                <?php } else {?>
+                                    <span><img src="https://dummyimage.com/270x200/000/fff" alt=""></span> 
+                                <?php } ?>
+							</div>
+							<div class="services-two__content">
+								<div class="services-two__icon">
+                                    <?php if(isset($puxaServices->icone2) && $puxaServices->icone2 != '') { ?>
+                                        <img src="<?php echo SITE_URL;?>/img/<?php echo $puxaServices->icone2;?>" alt="">
+                                    <?php } else {?>
+                                        <span><img src="https://dummyimage.com/48x48/ddd/000" alt=""></span> 
+                                    <?php } ?>
+								</div>
+								<div class="services-two__content-inner">
+                                    <h3 class="services-two__title"><?php echo $puxaServices->subtitulo2;?></h3>
+									<p class="services-two__text"><?php echo $puxaServices->titulo2;?></p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp animated" data-wow-delay="300ms" style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
+						<!--Services Two single-->
+						<div class="services-two__single">
+                        <div class="services-two__img">
+                                <?php if(isset($puxaServices->imagem3) && $puxaServices->imagem3 != '') { ?>
+                                    <img src="<?php echo SITE_URL;?>/img/<?php echo $puxaServices->imagem3;?>" alt="">
+                                <?php } else {?>
+                                    <span><img src="https://dummyimage.com/270x200/000/fff" alt=""></span> 
+                                <?php } ?>
+							</div>
+							<div class="services-two__content">
+								<div class="services-two__icon">
+                                    <?php if(isset($puxaServices->icone3) && $puxaServices->icone3 != '') { ?>
+                                        <img src="<?php echo SITE_URL;?>/img/<?php echo $puxaServices->icone3;?>" alt="">
+                                    <?php } else {?>
+                                        <span><img src="https://dummyimage.com/48x48/ddd/000" alt=""></span> 
+                                    <?php } ?>
+								</div>
+								<div class="services-two__content-inner">
+                                    <h3 class="services-two__title"><?php echo $puxaServices->subtitulo3;?></h3>
+									<p class="services-two__text"><?php echo $puxaServices->titulo3;?></p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp animated" data-wow-delay="400ms" style="visibility: visible; animation-delay: 400ms; animation-name: fadeInUp;">
+						<!--Services Two single-->
+						<div class="services-two__single">
+                        <div class="services-two__img">
+                                <?php if(isset($puxaServices->imagem4) && $puxaServices->imagem4 != '') { ?>
+                                    <img src="<?php echo SITE_URL;?>/img/<?php echo $puxaServices->imagem4;?>" alt="">
+                                <?php } else {?>
+                                    <span><img src="https://dummyimage.com/270x200/000/fff" alt=""></span> 
+                                <?php } ?>
+							</div>
+							<div class="services-two__content">
+								<div class="services-two__icon">
+                                    <?php if(isset($puxaServices->icone4) && $puxaServices->icone4 != '') { ?>
+                                        <img src="<?php echo SITE_URL;?>/img/<?php echo $puxaServices->icone4;?>" alt="">
+                                    <?php } else {?>
+                                        <span><img src="https://dummyimage.com/48x48/ddd/000" alt=""></span> 
+                                    <?php } ?>
+								</div>
+								<div class="services-two__content-inner">
+									<h3 class="services-two__title"><?php echo $puxaServices->subtitulo4;?></h3>
+									<p class="services-two__text"><?php echo $puxaServices->titulo4;?></p>
+								</div>
+							</div>
+						</div>
 					</div>
 
-					<div class="card col-lg-4 col-md-6 col-sm-12">
-                    <span class="index-card">02</span>
-						<h2><?php echo $puxaServices->item2;?></h2>
-						<p><?php echo $puxaServices->texto2;?></p>
-					</div>
-
-					<div class="card col-lg-4 col-md-6 col-sm-12">
-                    <span class="index-card">03</span>
-						<h2><?php echo $puxaServices->item3;?></h2>
-						<p><?php echo $puxaServices->texto3;?></p>
-					</div>
-			    </div>
+				</div>
 			</div>
 		</section>
 
-		<section class="leading wow fadeInUp" data-wow-delay="100ms">
-            <div class="leading-bg-box">
-                <div class="leading-bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
-                    style="background-image: url(<?php echo SITE_URL;?>/img/<?php echo $textosHome->paralax_7;?>);"></div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-7 col-lg-6">
-                        <div class="leading__left">
-                            <div class="leading__video-link">
-                                <a href="<?php echo $textosHome->embed;?>" class="video-popup">
-                                    <div class="leading__video-icon">
-                                        <span class="fa fa-play"></span>
-                                        <i class="ripple"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <h3 class="leading__title"><?php echo $puxaPsicologia->titulo ?></h3>
-                        </div>
-                    </div>
-                    <div class="col-xl-5 col-lg-6">
-                        <div class="leading__right">
-                            <ul class="list-unstyled leading__points">
-                                <li>
-                                    <div class="icon">
-                                        <span class="fa fa-check"></span>
-                                    </div>
-                                    <div class="text">
-                                        <p><?php echo $puxaPsicologia->item1 ?></p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <span class="fa fa-check"></span>
-                                    </div>
-                                    <div class="text">
-                                        <p><?php echo $puxaPsicologia->item2 ?></p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <span class="fa fa-check"></span>
-                                    </div>
-                                    <div class="text">
-                                        <p><?php echo $puxaPsicologia->item3 ?></p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <span class="fa fa-check"></span>
-                                    </div>
-                                    <div class="text">
-                                        <p><?php echo $puxaPsicologia->item4?></p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section class="more-services">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-12">
+						<div class="more-services__inner wow fadeInUp animated" data-wow-delay="100ms" style="visibility: visible; animation-delay: 100ms; animation-name: fadeInUp;">
+							<div class="more-services__left">
+								<p class="more-services__text"><?php echo $puxaServices->texto;?></p>
+							</div>
+                            <a href="<?php echo $puxaServices->link_botao; ?>" class="home-btn main-menu__btn"><?php echo $puxaServices->nome_botao; ?></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-        
+        	<!--Working Process Start-->
+		<section class="working-process">
+			<div class="container">
+				<div class="section-title text-center">
+					<span class="section-title__tagline"><?php echo $puxaServices->subtitulo;?></span>
+					<h2 class="section-title__title"><?php echo $puxaServices->titulo;?></h2>
+					<div class="section-title__line"></div>
+				</div>
+				<div class="working-process__inner">
+					<div class="row">
+						<div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
+							<!--Working Process Single-->
+							<div class="working-process__single">
+								<div class="working-process__count"></div>
+								<div class="working-process__icon">
+									<span class="icon-list"></span>
+								</div>
+								<h3 class="working-process__title"><?php echo $puxaServices->item1;?>
+								</h3>
+								<p class="working-process__text"><?php echo $puxaServices->texto1;?></p>
+							</div>
+						</div>
+						<div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms">
+							<!--Working Process Single-->
+							<div class="working-process__single">
+								<div class="working-process__count"></div>
+								<div class="working-process__icon">
+									<span class="icon-experts"></span>
+								</div>
+								<h3 class="working-process__title"><?php echo $puxaServices->item2;?>
+								</h3>
+								<p class="working-process__text"><?php echo $puxaServices->texto2;?></p>
+							</div>
+						</div>
+						<div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="300ms">
+							<!--Working Process Single-->
+							<div class="working-process__single">
+								<div class="working-process__count"></div>
+								<div class="working-process__icon">
+									<span class="icon-wallpaper-6"></span>
+								</div>
+								<h3 class="working-process__title"><?php echo $puxaServices->item3;?></h3>
+								<p class="working-process__text"><?php echo $puxaServices->texto3;?></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--Working Process End-->
+        <section class="more-services">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-12">
+						<div class="more-services__inner wow fadeInUp animated" data-wow-delay="100ms" style="visibility: visible; animation-delay: 100ms; animation-name: fadeInUp;">
+							<div class="more-services__left">
+								<p class="more-services__text"><?php echo $puxaServices->texto;?></p>
+							</div>
+                            <a href="<?php echo $puxaServices->link_botao; ?>" class="home-btn main-menu__btn"><?php echo $puxaServices->nome_botao; ?></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>		
 
-		<br>
+        <section class="leading">
+			<div class="leading-bg-box">
+            <div class="leading-bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
+                    style="background-image: url('https://dummyimage.com/1970x515/000/fff');"></div>
+            </div>
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-7 col-lg-6">
+						<div class="leading__left">
+							<div class="leading__video-link">
+								<a href="https://www.youtube.com/watch?v=Get7rqXYrbQ" class="video-popup">
+									<div class="leading__video-icon">
+										<span class="fa fa-play"></span>
+										<i class="ripple"></i>
+									</div>
+								</a>
+							</div>
+							<h2 class="leading__title"><?php echo $puxaPsicologia->titulo ?></h2>
+						</div>
+					</div>
+					<div class="col-xl-5 col-lg-6">
+						<div class="leading__right">
+							<ul class="list-unstyled leading__points">
+								<li>
+									<div class="icon">
+										<span class="fa fa-check"></span>
+									</div>
+									<div class="text">
+										<p><?php echo $puxaPsicologia->item1; ?></p>
+									</div>
+								</li>
+								<li>
+									<div class="icon">
+										<span class="fa fa-check"></span>
+									</div>
+									<div class="text">
+										<p><?php echo $puxaPsicologia->item2; ?></p>
+									</div>
+								</li>
+								<li>
+									<div class="icon">
+										<span class="fa fa-check"></span>
+									</div>
+									<div class="text">
+										<p><?php echo $puxaPsicologia->item3; ?></p>
+									</div>
+								</li>
+								<li>
+									<div class="icon">
+										<span class="fa fa-check"></span>
+									</div>
+									<div class="text">
+										<p><?php echo $puxaPsicologia->item4; ?></p>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
+        <section class="blog-two" id="blog">
+			<div class="blog-two-bg" style="background-image: url(assets/images/backgrounds/blog-two-bg.jpg);"></div>
+			<div class="container">
+				<div class="blog-two__top">
+					<div class="row">
+						<div class="col-xl-6 col-lg-6">
+							<div class="blog-two__top-left">
+								<div class="section-title text-left">
+									<span class="section-title__tagline"><?php echo $puxaPsicologia->subtitulo;?></span>
+									<h2 class="section-title__title"><?php echo $puxaPsicologia->titulo;?></h2>
+									<div class="section-title__line"></div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-6 col-lg-6">
+							<div class="blog-two__right">
+								<p class="blog-two__right-text"><?php echo $puxaPsicologia->texto;?></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="blog-two__bottom">
+					<div class="row">
+						<?php foreach($puxaBlogs as $blog) { ?> 
+                        <div class="col-xl-4 col-lg-4 wow fadeInUp animated" data-wow-delay="100ms" style="visibility: visible; animation-delay: 100ms; animation-name: fadeInUp;">
+							<!--Blog One Start-->
+							<div class="blog-one__single">
+								<div class="blog-one__img">
+                                    <?php if(isset($blog->foto) && $blog->foto != '') { ?>
+                                        <img src="<?php echo SITE_URL;?>/img/<?php echo $blog->foto;?>" alt="">
+                                    <?php } else {?>
+                                        <span><img src="https://dummyimage.com/48x48/ddd/000" alt=""></span> 
+                                    <?php } ?>
+									<img src="assets/images/blog/blog-1-1.jpg" alt="">
+									<a href="blog-details.html">
+										<span class="blog-one__plus"></span>
+									</a>
+								</div>
+								<div class="blog-one__content">
+									<div class="blog-one__date">
+										<p><?php echo $blog->data_postagem;?></p>
+									</div>
+									<ul class="list-unstyled blog-one__meta">
+										<li><a href="blog-details.html"><i class="far fa-user-circle"></i> <?php echo $blog->postado_por;?> </a>
+										</li>
+										<li><span>/</span></li>
+										<li><a href="blog-details.html"><i class="far fa-comments"></i> 02 Comments</a>
+										</li>
+									</ul>
+									<h3 class="blog-one__title"><a href="blog-details.html"><?php echo $blog->titulo;?></a></h3>
+								</div>
+							</div>
+						</div>
+                        <?php } ?>	
+					</div>
+				</div>
+			</div>
+		</section>
 
-        <!-- <section class="project-two">
-            <div class="porject-two-border"></div>
-            <div class="porject-two-border-2"></div>
-            <div class="porject-two-border-3"></div>
-            <div class="project-two-bg-1 active"
-                style="background-image: url(<?php echo SITE_URL;?>/img/<?php echo $textosHome->foto_8;?>);">
-            </div>
-            <div class="project-two-bg-2"
-                style="background-image: url(<?php echo SITE_URL;?>/img/<?php echo $textosHome->foto10_sessao1;?>);">
-            </div>
-            <div class="project-two-bg-3"
-                style="background-image: url(<?php echo SITE_URL;?>/img/<?php echo $textosHome->foto;?>);">
-            </div>
-            <div class="project-two-bg-4"
-                style="background-image: url(<?php echo SITE_URL;?>/img/<?php echo $textosHome->foto_4;?>);">
-            </div>
-            <div class="project-two__wrap">
-                <div class="prject-two__title-box">
-                    <div class="project-two-title-shape"
-                        style="background-image: url(assets/images/shapes/prject-two-title-shape.png);"></div>
-                    <h4 class="project-two__title-1"><?php echo $textosHome->titulo2;?></h4>
-                </div>
-                <div class="project-two__content-box">
-                    <div class="project-two__single">
-                        <div class="project-two__content"> 
-                            <p class="project-two__sub-title"><?php echo $textosHome->titulo22_sessao1;?></p>
-                            <h3 class="project-two__title"><?php echo $textosHome->titulo23_sessao1;?></h3>
-                        </div>
-                        <div class="project-two__hover">
-                            <p class="project-two__hover-sub-title"><?php echo $textosHome->titulo22_sessao1;?></p>
-                            <h3 class="project-two__hover-title"><a href="<?php echo $textosHome->link_botao_8;?>"><?php echo $textosHome->titulo23_sessao1;?></a></h3>
-                            <p style="margin-top:30px;"><?php echo $textosHome->breve_sobre2;?></p>
-                            <a  style="margin-top:35px;"href="<?php echo $textosHome->link_botao_8;?>" class="thm-btn project-two__btn"><?php echo $textosHome->nome_botao_8;?></a>
-                        </div>
-                    </div>
-                    <div class="project-two__single">
-                        <div class="project-two__content">
-                            <p class="project-two__sub-title"><?php echo $textosHome->titulo25_sessao1;?></p>
-                            <h3 class="project-two__title"><?php echo $textosHome->nome_botao_6;?></h3>
-                        </div>
-                        <div class="project-two__hover">
-                            <p class="project-two__hover-sub-title"><?php echo $textosHome->titulo25_sessao1;?></p>
-                            <h3 class="project-two__hover-title"><a href="<?php echo $textosHome->nome_botao_5;?>"><?php echo $textosHome->nome_botao_6;?></a>
-                            </h3>
-                            <p style="margin-top:30px;"><?php echo $textosHome->texto_2;?></p>
-                            <a style="margin-top:35px;"href="<?php echo $textosHome->nome_botao_5;?>" class="thm-btn project-two__btn"><?php echo $textosHome->nome_botao_1;?></a>
-                        </div>
-                    </div>
-                    <div class="project-two__single">
-                        <div class="project-two__content">
-                            <p class="project-two__sub-title"><?php echo $textosHome->titulo24_sessao1;?></p>
-                            <h3 class="project-two__title"><?php echo $textosHome->titulo7;?></h3>
-                        </div>
-                        <div class="project-two__hover">
-                            <p class="project-two__hover-sub-title"><?php echo $textosHome->titulo24_sessao1;?></p>
-                            <h3 class="project-two__hover-title"><a href="<?php echo $textosHome->link_botao_5;?>"><?php echo $textosHome->titulo7;?></a></h3>
-                            <p style="margin-top:30px;"><?php echo $textosHome->descricao2;?></p>
-                            <a style="margin-top:35px;" href="<?php echo $textosHome->link_botao_5;?>" class="thm-btn project-two__btn"><?php echo $textosHome->nome_botao_4;?></a>
-                        </div>
-                    </div>
-                    <div class="project-two__single">
-                        <div class="project-two__content">
-                            <p class="project-two__sub-title"><?php echo $textosHome->titulo6;?></p>
-                            <h3 class="project-two__title"><?php echo $textosHome->link_botao_4;?></h3>
-                        </div>
-                        <div class="project-two__hover">
-                            <p class="project-two__hover-sub-title"><?php echo $textosHome->titulo6;?></p>
-                            <h3 class="project-two__hover-title"><a href="<?php echo $textosHome->link_botao_6;?>"><?php echo $textosHome->link_botao_4;?></a></h3>
-                            <p style="margin-top:30px;"><?php echo $textosHome->texto_6;?></p>
-                            <a style="margin-top:35px;" href="<?php echo $textosHome->link_botao_6;?>" class="thm-btn project-two__btn"><?php echo $textosHome->titulo15_sessao1;?></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
-    
-        <section class="services-two wow fadeInUp" data-wow-delay="100ms">
-            <div class="container">
-                <div class="services-two-bg" style="background-color:#f8f9fa;">
-                </div>
-                <div class="services-two-shape-1 float-bob-x"></div>
-                <div class="services-two-shape-2 float-bob-y"></div>
-                <div class="services-two-shape-3 float-bob-y"></div>
-                <div class="section-title text-center">
-                    <span class="section-title__tagline"><?php echo $puxaPsicologia->subtitulo;?></span>
-                    <h2 class="section-title__title"><?php echo $puxaPsicologia->titulo2;?></h2>
-                    <div class="section-title__line"></div>
-                    <p class="section-title__text"><?php echo $puxaPsicologia->texto?></p>
-                </div>
-                <div class="row services-five">       
-                    <?php foreach ($puxaBlogs as $blog){?>
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="100ms">
-                        <div class="services-two__single">
-                            <div class="services-two__img">
-                                <img src="https://via.placeholder.com/150" alt="">
-                            </div>
-                            <div class="services-two__content">
-                                <div class="services-two__content-inner">
-                                    <h3 class="services-two__title"><a href="<?php echo SITE_URL;?>/blog/<?php echo $blog->id;?>"><?php echo $blog->titulo ;?></a></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <?php }?>
-                </div>
-                <div class="row ">
-                    <div class="col-sm-12 col-md-4 services-announce">
-                        <img src="https://via.placeholder.com/300" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-sm-12 col-md-8 services-announce announce-text">
-                        <h2><?php echo $puxaPsicologia->titulo3;?></h2>
-                        <div>
-                            <a href="<?php echo $puxaPsicologia->link_botao; ?>" class="home-btn main-menu__btn"><?php echo $puxaPsicologia->nome_botao; ?></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section class="cta-one" id="contact">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-5 col-lg-6">
+						<div class="cta-one__left">
+							<div class="cta-one__img-box">
+								<div class="cta-one__img-1">
+									<img src="assets/images/resources/cta-one-img-1.jpg" alt="">
+								</div>
+								<div class="cta-one__img-2">
+									<img src="assets/images/resources/cta-one-img-2.jpg" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-7 col-lg-6">
+						<div class="cta-one__right">
+							<h2 class="cta-one__title"><?php echo $puxaPsicologia->titulo3;?></h2>
+							<a href="<?php echo $puxaPsicologia->link_botao; ?>" class="thm-btn cta-one__btn"><?php echo $puxaPsicologia->nome_botao; ?></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
         
         <!-- <section class="working-process">
             <div class="container">

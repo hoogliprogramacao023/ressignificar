@@ -100,7 +100,7 @@ if(empty($EspecialidadesInstanciada)) {
 							$pastaArquivos = '../img';
 						}
 						
-						$sql = "INSERT INTO tbl_especialidades (foto, titulo, descricao, meta_title, meta_keywords, meta_description, breve, id_categoria, url_amigavel, descrica_imagem, legenda_imagem) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
+						$sql = "INSERT INTO tbl_especialidades (foto, titulo, descricao, meta_title, meta_keywords, meta_description, breve, id_categoria, url_amigavel, descricao_imagem, legenda_imagem) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
 						$stm = $this->pdo->prepare($sql);   
 						$stm->bindValue(1, upload('foto', $pastaArquivos, 'N'));   
 						$stm->bindValue(2, $titulo);   
@@ -123,6 +123,7 @@ if(empty($EspecialidadesInstanciada)) {
 						
 					} catch(PDOException $erro){
 						echo $erro->getMessage(); 
+						exit;
 					}
 					echo "	<script>
 								window.location='especialidades.php';

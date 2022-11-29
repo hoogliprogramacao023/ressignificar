@@ -106,15 +106,75 @@ $editaHome = $home->rsDados($id);
                                                 <label  class="col-form-label">Tópico 1</label>
                                                 <input class="form-control" type="text" name="topico1" value="<?php if(isset($editaHome->topico1) && !empty($editaHome->topico1)){ echo $editaHome->topico1;}?>" />
                                             </div>
+                                        </div>
+
+                                        <div class="row">
+                                           <div class="col-md-6">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Icone 1</label>
+                                                    <input type="file" name="icone1" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <?php if(isset($editaHome->icone1) && !empty($editaHome->icone1)){ ?>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <img src="../img/<?php echo $editaHome->icone1;?>"  width="100">
+                                                </div>
+                                            </div>
+                                            <?php }?>
+                                        </div>
+
+                                        <br>
+
+                                        <div class="row">
                                             <div class="col-md-6 col-sm-12">
                                                 <label  class="col-form-label">Tópico 2</label>
                                                 <input class="form-control" type="text" name="topico2" value="<?php if(isset($editaHome->topico2) && !empty($editaHome->topico2)){ echo $editaHome->topico2;}?>" />
                                             </div>
+                                        </div>
+
+                                        <div class="row">
+                                           <div class="col-md-6">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Icone 2</label>
+                                                    <input type="file" name="icone2" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <?php if(isset($editaHome->icone2) && !empty($editaHome->icone2)){ ?>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <img src="../img/<?php echo $editaHome->icone2;?>"  width="100">
+                                                </div>
+                                            </div>
+                                            <?php }?>
+                                        </div>
+
+                                        <br>
+
+                                        <div class="row">
                                             <div class="col-md-6 col-sm-12">
                                                 <label  class="col-form-label">Tópico 3</label>
                                                 <input class="form-control" type="text" name="topico3" value="<?php if(isset($editaHome->topico3) && !empty($editaHome->topico3)){ echo $editaHome->topico3;}?>" />
                                             </div>
-                                         </div>
+                                        </div>
+
+                                        <div class="row">
+                                           <div class="col-md-6">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Icone 3</label>
+                                                    <input type="file" name="icone3" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <?php if(isset($editaHome->icone3) && !empty($editaHome->icone3)){ ?>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <img src="../img/<?php echo $editaHome->icone3;?>"  width="100">
+                                                </div>
+                                            </div>
+                                            <?php }?>
+                                        </div>
+
+                                        <br>
 
                                         <div class="row">
                                            <div class="col-md-6">
